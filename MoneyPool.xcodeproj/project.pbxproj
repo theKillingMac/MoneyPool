@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CA81D2C698B00F34956 /* AppDelegate.swift */; };
+		04257CAB1D2C698B00F34956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CAA1D2C698B00F34956 /* ViewController.swift */; };
+		04257CAE1D2C698B00F34956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04257CAC1D2C698B00F34956 /* Main.storyboard */; };
+		04257CB01D2C698B00F34956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04257CAF1D2C698B00F34956 /* Assets.xcassets */; };
+		04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */; };
+		04257CBE1D2C698B00F34956 /* MoneyPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CBD1D2C698B00F34956 /* MoneyPoolTests.swift */; };
+		04257CC91D2C698B00F34956 /* MoneyPoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CC81D2C698B00F34956 /* MoneyPoolUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04257CBA1D2C698B00F34956 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04257C9D1D2C698B00F34956 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04257CA41D2C698B00F34956;
+			remoteInfo = MoneyPool;
+		};
+		04257CC51D2C698B00F34956 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04257C9D1D2C698B00F34956 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04257CA41D2C698B00F34956;
+			remoteInfo = MoneyPool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04257CA51D2C698B00F34956 /* MoneyPool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyPool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04257CA81D2C698B00F34956 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04257CAA1D2C698B00F34956 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04257CAD1D2C698B00F34956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04257CAF1D2C698B00F34956 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04257CB21D2C698B00F34956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04257CB41D2C698B00F34956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04257CB91D2C698B00F34956 /* MoneyPoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyPoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04257CBD1D2C698B00F34956 /* MoneyPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyPoolTests.swift; sourceTree = "<group>"; };
+		04257CBF1D2C698B00F34956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04257CC41D2C698B00F34956 /* MoneyPoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyPoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04257CC81D2C698B00F34956 /* MoneyPoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyPoolUITests.swift; sourceTree = "<group>"; };
+		04257CCA1D2C698B00F34956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04257CA21D2C698B00F34956 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CB61D2C698B00F34956 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CC11D2C698B00F34956 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04257C9C1D2C698B00F34956 = {
+			isa = PBXGroup;
+			children = (
+				04257CA71D2C698B00F34956 /* MoneyPool */,
+				04257CBC1D2C698B00F34956 /* MoneyPoolTests */,
+				04257CC71D2C698B00F34956 /* MoneyPoolUITests */,
+				04257CA61D2C698B00F34956 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04257CA61D2C698B00F34956 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04257CA51D2C698B00F34956 /* MoneyPool.app */,
+				04257CB91D2C698B00F34956 /* MoneyPoolTests.xctest */,
+				04257CC41D2C698B00F34956 /* MoneyPoolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04257CA71D2C698B00F34956 /* MoneyPool */ = {
+			isa = PBXGroup;
+			children = (
+				04257CA81D2C698B00F34956 /* AppDelegate.swift */,
+				04257CAA1D2C698B00F34956 /* ViewController.swift */,
+				04257CAC1D2C698B00F34956 /* Main.storyboard */,
+				04257CAF1D2C698B00F34956 /* Assets.xcassets */,
+				04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */,
+				04257CB41D2C698B00F34956 /* Info.plist */,
+			);
+			path = MoneyPool;
+			sourceTree = "<group>";
+		};
+		04257CBC1D2C698B00F34956 /* MoneyPoolTests */ = {
+			isa = PBXGroup;
+			children = (
+				04257CBD1D2C698B00F34956 /* MoneyPoolTests.swift */,
+				04257CBF1D2C698B00F34956 /* Info.plist */,
+			);
+			path = MoneyPoolTests;
+			sourceTree = "<group>";
+		};
+		04257CC71D2C698B00F34956 /* MoneyPoolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04257CC81D2C698B00F34956 /* MoneyPoolUITests.swift */,
+				04257CCA1D2C698B00F34956 /* Info.plist */,
+			);
+			path = MoneyPoolUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04257CA41D2C698B00F34956 /* MoneyPool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04257CCD1D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPool" */;
+			buildPhases = (
+				04257CA11D2C698B00F34956 /* Sources */,
+				04257CA21D2C698B00F34956 /* Frameworks */,
+				04257CA31D2C698B00F34956 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoneyPool;
+			productName = MoneyPool;
+			productReference = 04257CA51D2C698B00F34956 /* MoneyPool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04257CB81D2C698B00F34956 /* MoneyPoolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04257CD01D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPoolTests" */;
+			buildPhases = (
+				04257CB51D2C698B00F34956 /* Sources */,
+				04257CB61D2C698B00F34956 /* Frameworks */,
+				04257CB71D2C698B00F34956 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04257CBB1D2C698B00F34956 /* PBXTargetDependency */,
+			);
+			name = MoneyPoolTests;
+			productName = MoneyPoolTests;
+			productReference = 04257CB91D2C698B00F34956 /* MoneyPoolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04257CC31D2C698B00F34956 /* MoneyPoolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04257CD31D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPoolUITests" */;
+			buildPhases = (
+				04257CC01D2C698B00F34956 /* Sources */,
+				04257CC11D2C698B00F34956 /* Frameworks */,
+				04257CC21D2C698B00F34956 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04257CC61D2C698B00F34956 /* PBXTargetDependency */,
+			);
+			name = MoneyPoolUITests;
+			productName = MoneyPoolUITests;
+			productReference = 04257CC41D2C698B00F34956 /* MoneyPoolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04257C9D1D2C698B00F34956 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Jorge Bastos";
+				TargetAttributes = {
+					04257CA41D2C698B00F34956 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					04257CB81D2C698B00F34956 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 04257CA41D2C698B00F34956;
+					};
+					04257CC31D2C698B00F34956 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 04257CA41D2C698B00F34956;
+					};
+				};
+			};
+			buildConfigurationList = 04257CA01D2C698B00F34956 /* Build configuration list for PBXProject "MoneyPool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04257C9C1D2C698B00F34956;
+			productRefGroup = 04257CA61D2C698B00F34956 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04257CA41D2C698B00F34956 /* MoneyPool */,
+				04257CB81D2C698B00F34956 /* MoneyPoolTests */,
+				04257CC31D2C698B00F34956 /* MoneyPoolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04257CA31D2C698B00F34956 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */,
+				04257CB01D2C698B00F34956 /* Assets.xcassets in Resources */,
+				04257CAE1D2C698B00F34956 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CB71D2C698B00F34956 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CC21D2C698B00F34956 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04257CA11D2C698B00F34956 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04257CAB1D2C698B00F34956 /* ViewController.swift in Sources */,
+				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CB51D2C698B00F34956 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04257CBE1D2C698B00F34956 /* MoneyPoolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04257CC01D2C698B00F34956 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04257CC91D2C698B00F34956 /* MoneyPoolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04257CBB1D2C698B00F34956 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04257CA41D2C698B00F34956 /* MoneyPool */;
+			targetProxy = 04257CBA1D2C698B00F34956 /* PBXContainerItemProxy */;
+		};
+		04257CC61D2C698B00F34956 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04257CA41D2C698B00F34956 /* MoneyPool */;
+			targetProxy = 04257CC51D2C698B00F34956 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04257CAC1D2C698B00F34956 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04257CAD1D2C698B00F34956 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04257CB21D2C698B00F34956 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04257CCB1D2C698B00F34956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04257CCC1D2C698B00F34956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04257CCE1D2C698B00F34956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MoneyPool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04257CCF1D2C698B00F34956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MoneyPool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		04257CD11D2C698B00F34956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MoneyPoolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPoolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyPool.app/MoneyPool";
+			};
+			name = Debug;
+		};
+		04257CD21D2C698B00F34956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MoneyPoolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPoolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneyPool.app/MoneyPool";
+			};
+			name = Release;
+		};
+		04257CD41D2C698B00F34956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MoneyPoolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPoolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MoneyPool;
+			};
+			name = Debug;
+		};
+		04257CD51D2C698B00F34956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MoneyPoolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPoolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MoneyPool;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04257CA01D2C698B00F34956 /* Build configuration list for PBXProject "MoneyPool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04257CCB1D2C698B00F34956 /* Debug */,
+				04257CCC1D2C698B00F34956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04257CCD1D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04257CCE1D2C698B00F34956 /* Debug */,
+				04257CCF1D2C698B00F34956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		04257CD01D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPoolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04257CD11D2C698B00F34956 /* Debug */,
+				04257CD21D2C698B00F34956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		04257CD31D2C698B00F34956 /* Build configuration list for PBXNativeTarget "MoneyPoolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04257CD41D2C698B00F34956 /* Debug */,
+				04257CD51D2C698B00F34956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04257C9D1D2C698B00F34956 /* Project object */;
+}
