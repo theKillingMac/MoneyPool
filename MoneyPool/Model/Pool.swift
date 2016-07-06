@@ -10,6 +10,8 @@ import Foundation
 
 struct Pool: MoneyPoolType, FirebaseConvertible {
     
+    
+    
     init(info: [String : AnyObject]) {
         // TODO: implement
     }
