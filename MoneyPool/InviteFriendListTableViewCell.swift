@@ -8,24 +8,31 @@
 
 import UIKit
 
+protocol InviteFriendTableViewCellDelegate: class{
+	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String)
+	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String)
+}
+
 class InviteFriendListTableViewCell: UITableViewCell {
 
+	
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
 	@IBOutlet weak var inviteFriendButton: UIButton!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+	
+	var invited = false
+	weak var delegate: InviteFriendTableViewCellDelegate?
 
 	@IBAction func inviteFriendButtonPushed(sender: UIButton) {
 		sender.selected = !sender.selected
+		
+		if !invited{
+			delegate?.cell(self, didInviteFriend: self.friendNameLabel.text!)
+			invited = true
+		}else{
+			delegate?.cell(self, didUninviteFriend: self.friendNameLabel.text!)
+			invited = false
+		}
 	}
 	
 }

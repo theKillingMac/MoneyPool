@@ -26,16 +26,8 @@ class InviteFriendsListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-	    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
+	}
 
 }
 
@@ -49,6 +41,8 @@ extension InviteFriendsListViewController: UITableViewDataSource, UITableViewDel
 		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
 		cell.friendNameLabel.text = displayFriends[indexPath.row]
 		//need to set the image of the friend
+		
+		cell.delegate = self
 		return cell
 	}
 	
@@ -80,4 +74,16 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 	
 }
 
+//MARK: Friend invitation
+extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
+	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String){
+		invitedFriends.append(invitedFriend)
+		print(invitedFriends)
+	}
+	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String){
+		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
+		print(invitedFriends)
+	}
+
+}
 
