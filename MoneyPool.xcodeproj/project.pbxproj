@@ -17,7 +17,7 @@
 		84384EABB75C2A0FFA134FBF /* Pods_MoneyPoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772AC31E89775B861E694516 /* Pods_MoneyPoolTests.framework */; };
 		B2FF81F31D2C9B7300704DAE /* InviteFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF81F21D2C9B7300704DAE /* InviteFriendListTableViewCell.swift */; };
 		B2FF81FE1D2C9D4100704DAE /* InviteFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF81FD1D2C9D4100704DAE /* InviteFriendsListViewController.swift */; };
-		B2FF820B1D2D7A1C00704DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FF82091D2D7A1C00704DAE /* Main.storyboard */; };
+		B2FF82081D2CA5AA00704DAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FF82061D2CA5AA00704DAE /* Main.storyboard */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		98BC64AB76388C0A698E7007 /* Pods-MoneyPoolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolTests/Pods-MoneyPoolTests.release.xcconfig"; sourceTree = "<group>"; };
 		B2FF81F21D2C9B7300704DAE /* InviteFriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendListTableViewCell.swift; sourceTree = "<group>"; };
 		B2FF81FD1D2C9D4100704DAE /* InviteFriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsListViewController.swift; sourceTree = "<group>"; };
-		B2FF820A1D2D7A1C00704DAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B2FF82071D2CA5AA00704DAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyPoolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 		04257CD61D2C77DA00F34956 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B2FF82091D2D7A1C00704DAE /* Main.storyboard */,
+				B2FF82061D2CA5AA00704DAE /* Main.storyboard */,
 				04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */,
 				B2FF81F21D2C9B7300704DAE /* InviteFriendListTableViewCell.swift */,
 			);
@@ -301,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */,
-				B2FF820B1D2D7A1C00704DAE /* Main.storyboard in Resources */,
+				B2FF82081D2CA5AA00704DAE /* Main.storyboard in Resources */,
 				04257CD91D2C782B00F34956 /* GoogleService-Info.plist in Resources */,
 				04257CB01D2C698B00F34956 /* Assets.xcassets in Resources */,
 			);
@@ -497,10 +497,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		B2FF82091D2D7A1C00704DAE /* Main.storyboard */ = {
+		B2FF82061D2CA5AA00704DAE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B2FF820A1D2D7A1C00704DAE /* Base */,
+				B2FF82071D2CA5AA00704DAE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
