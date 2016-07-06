@@ -11,13 +11,13 @@ import Firebase
 
 class ViewController: UIViewController {
     
-    var ref = FIRDatabase.database().reference()
+	//var ref = FIRDatabase.database().reference()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Create a reference to Firebase database
-        print(ref)
+		//print(ref)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
