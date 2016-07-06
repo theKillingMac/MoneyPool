@@ -23,6 +23,8 @@
 		044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393A1D2CE11E0058E3EB /* ErrorHandling.swift */; };
 		044B393D1D2CF8250058E3EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393C1D2CF8250058E3EB /* User.swift */; };
 		142D220A9E5BEEC29323F2F1 /* Pods_MoneyPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D79C75AB9FDCC712AB4E34 /* Pods_MoneyPool.framework */; };
+		61D434551D2D949C0093A831 /* CreatePoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D434541D2D949C0093A831 /* CreatePoolViewController.swift */; };
+		61D434571D2D94A50093A831 /* ActivePoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D434561D2D94A50093A831 /* ActivePoolViewController.swift */; };
 		84384EABB75C2A0FFA134FBF /* Pods_MoneyPoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772AC31E89775B861E694516 /* Pods_MoneyPoolTests.framework */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		044B393C1D2CF8250058E3EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		46FC17EB0396694BF14EB738 /* Pods-MoneyPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPool/Pods-MoneyPool.release.xcconfig"; sourceTree = "<group>"; };
 		51A2F7DDB3240B12D81FBC88 /* Pods-MoneyPoolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolTests/Pods-MoneyPoolTests.debug.xcconfig"; sourceTree = "<group>"; };
+		61D434541D2D949C0093A831 /* CreatePoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePoolViewController.swift; sourceTree = "<group>"; };
+		61D434561D2D94A50093A831 /* ActivePoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivePoolViewController.swift; sourceTree = "<group>"; };
 		63AE05590030BE5CB4DBA907 /* Pods-MoneyPoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolUITests/Pods-MoneyPoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		643A2722BEEDFCADCF19C954 /* Pods-MoneyPoolUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolUITests/Pods-MoneyPoolUITests.release.xcconfig"; sourceTree = "<group>"; };
 		68EFD3A55E1D2AE36AFEDB0B /* Pods-MoneyPool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPool/Pods-MoneyPool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			children = (
 				04257CA81D2C698B00F34956 /* AppDelegate.swift */,
 				04257CAA1D2C698B00F34956 /* ViewController.swift */,
+				61D434541D2D949C0093A831 /* CreatePoolViewController.swift */,
+				61D434561D2D94A50093A831 /* ActivePoolViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -489,10 +495,12 @@
 				044B39351D2CAEB40058E3EB /* MoneyPoolType.swift in Sources */,
 				04257CAB1D2C698B00F34956 /* ViewController.swift in Sources */,
 				044B392C1D2C8CD20058E3EB /* FirebaseHelper.swift in Sources */,
+				61D434571D2D94A50093A831 /* ActivePoolViewController.swift in Sources */,
 				044B39331D2CAE770058E3EB /* Invitation.swift in Sources */,
 				044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */,
 				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,
 				044B393D1D2CF8250058E3EB /* User.swift in Sources */,
+				61D434551D2D949C0093A831 /* CreatePoolViewController.swift in Sources */,
 				044B392F1D2C903B0058E3EB /* Pool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
