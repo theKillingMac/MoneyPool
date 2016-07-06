@@ -38,25 +38,12 @@ class CreatePoolViewController: UIViewController {
                 print("Invite Cell Tapped")
                 
                 let displayInviteViewController = segue.destinationViewController as! InviteFriendsListViewController
-            
-                
-                
-//                //MARK: Determining the selected note
-//                //1
-//                let indexPath = tableView.indexPathForSelectedRow!
-//                //2 Identifying each cell with the indexpath to retrieve the note from notes array.
-//                let note = notes[indexPath.row]
-//                print(notes)
-          
             } else {
                 print("error")
                 
             }
         }
     }
-
-
-
 }
 
 
