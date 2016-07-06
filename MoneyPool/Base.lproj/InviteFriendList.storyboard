@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Invite Friends List View Controller-->
+        <scene sceneID="DcQ-yh-Bzw">
+            <objects>
+                <viewController id="jmn-uM-h8n" customClass="InviteFriendsListViewController" customModule="MoneyPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="csK-Or-T3Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="6mx-7R-rXX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ApJ-Na-TnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Friends" translatesAutoresizingMaskIntoConstraints="NO" id="o4r-VB-YgE">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="jmn-uM-h8n" id="2tN-Ko-5Sy"/>
+                                </connections>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLo-qW-Y8b">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Invite Friends to the Pool" id="udc-Xx-A82"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hon-Tg-hMq">
+                                <rect key="frame" x="0.0" y="108" width="600" height="422"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="Qpl-S6-RRO" customClass="InviteFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qpl-S6-RRO" id="hiK-7K-TqB">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-xA-XvJ">
+                                                    <rect key="frame" x="72" y="18" width="345" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8d-d7-6MD">
+                                                    <rect key="frame" x="442" y="15" width="150" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="APh-F9-Ud1"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Invite"/>
+                                                    <state key="selected" title="Invited"/>
+                                                    <connections>
+                                                        <action selector="inviteFriendButtonPushed:" destination="Qpl-S6-RRO" eventType="touchUpInside" id="HXZ-QR-9MS"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-nQ-j0V">
+                                                    <rect key="frame" x="8" y="2" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="Ese-Og-UfZ"/>
+                                                        <constraint firstAttribute="height" constant="55" id="xnf-t6-kHZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zhg-xA-XvJ" firstAttribute="centerY" secondItem="hiK-7K-TqB" secondAttribute="centerY" id="0pR-u9-v5r"/>
+                                                <constraint firstItem="zhg-xA-XvJ" firstAttribute="leading" secondItem="hiH-nQ-j0V" secondAttribute="trailing" constant="9" id="4Kq-68-rsO"/>
+                                                <constraint firstItem="hiH-nQ-j0V" firstAttribute="centerY" secondItem="hiK-7K-TqB" secondAttribute="centerY" id="fzY-5m-nad"/>
+                                                <constraint firstItem="hiH-nQ-j0V" firstAttribute="leading" secondItem="hiK-7K-TqB" secondAttribute="leading" constant="8" id="haV-Ig-82Q"/>
+                                                <constraint firstItem="a8d-d7-6MD" firstAttribute="leading" secondItem="zhg-xA-XvJ" secondAttribute="trailing" constant="25" id="otf-63-Vnn"/>
+                                                <constraint firstItem="a8d-d7-6MD" firstAttribute="trailing" secondItem="hiK-7K-TqB" secondAttribute="trailingMargin" id="r5q-SI-EwR"/>
+                                                <constraint firstItem="a8d-d7-6MD" firstAttribute="centerY" secondItem="hiK-7K-TqB" secondAttribute="centerY" id="s1s-cK-oFu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendNameLabel" destination="zhg-xA-XvJ" id="z5T-Bk-yOk"/>
+                                            <outlet property="inviteFriendButton" destination="a8d-d7-6MD" id="O7p-GL-AVP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jmn-uM-h8n" id="tAE-zD-IrN"/>
+                                    <outlet property="delegate" destination="jmn-uM-h8n" id="tJz-p7-ddW"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgC-Wo-DsA">
+                                <rect key="frame" x="258" y="550" width="84" height="30"/>
+                                <state key="normal" title="Send Invites"/>
+                                <connections>
+                                    <action selector="SendInvitesButtonPushed:" destination="jmn-uM-h8n" eventType="touchUpInside" id="dnk-kc-xmO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rgC-Wo-DsA" firstAttribute="centerX" secondItem="ApJ-Na-TnJ" secondAttribute="centerX" id="2Hd-XW-H30"/>
+                            <constraint firstItem="yLo-qW-Y8b" firstAttribute="trailing" secondItem="o4r-VB-YgE" secondAttribute="trailing" id="3ZZ-zS-Gel"/>
+                            <constraint firstAttribute="trailing" secondItem="yLo-qW-Y8b" secondAttribute="trailing" id="4RY-0c-77t"/>
+                            <constraint firstItem="o4r-VB-YgE" firstAttribute="top" secondItem="yLo-qW-Y8b" secondAttribute="bottom" id="Ci2-Ip-sqL"/>
+                            <constraint firstItem="6mx-7R-rXX" firstAttribute="top" secondItem="hon-Tg-hMq" secondAttribute="bottom" constant="70" id="GEN-e9-cJD"/>
+                            <constraint firstItem="yLo-qW-Y8b" firstAttribute="leading" secondItem="ApJ-Na-TnJ" secondAttribute="leading" id="LoV-60-hFe"/>
+                            <constraint firstItem="o4r-VB-YgE" firstAttribute="trailing" secondItem="hon-Tg-hMq" secondAttribute="trailing" id="Osk-sh-rDD"/>
+                            <constraint firstItem="6mx-7R-rXX" firstAttribute="top" secondItem="rgC-Wo-DsA" secondAttribute="bottom" constant="20" id="djw-pT-0Yk"/>
+                            <constraint firstItem="yLo-qW-Y8b" firstAttribute="top" secondItem="csK-Or-T3Q" secondAttribute="bottom" id="dwK-bb-euJ"/>
+                            <constraint firstItem="hon-Tg-hMq" firstAttribute="top" secondItem="o4r-VB-YgE" secondAttribute="bottom" id="e3M-Ew-2CA"/>
+                            <constraint firstItem="yLo-qW-Y8b" firstAttribute="leading" secondItem="o4r-VB-YgE" secondAttribute="leading" id="gHx-L8-rhQ"/>
+                            <constraint firstItem="rgC-Wo-DsA" firstAttribute="centerX" secondItem="ApJ-Na-TnJ" secondAttribute="centerX" id="lUr-J4-LKT"/>
+                            <constraint firstItem="o4r-VB-YgE" firstAttribute="leading" secondItem="hon-Tg-hMq" secondAttribute="leading" id="nVt-We-qIC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2Hd-XW-H30"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="iwB-DB-RR1"/>
+                    <connections>
+                        <outlet property="searchBar" destination="o4r-VB-YgE" id="MnV-dg-JtR"/>
+                        <outlet property="searchDisplayController" destination="uD6-Qh-5Qi" id="rjG-C8-2Gv"/>
+                        <outlet property="tableView" destination="hon-Tg-hMq" id="41o-NN-eG6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daa-hQ-Xlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="uD6-Qh-5Qi">
+                    <connections>
+                        <outlet property="delegate" destination="jmn-uM-h8n" id="790-i5-MEl"/>
+                        <outlet property="searchContentsController" destination="jmn-uM-h8n" id="UfY-we-ReG"/>
+                        <outlet property="searchResultsDataSource" destination="jmn-uM-h8n" id="Bib-54-F6V"/>
+                        <outlet property="searchResultsDelegate" destination="jmn-uM-h8n" id="N8H-D3-801"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1647" y="534"/>
+        </scene>
+    </scenes>
+</document>
