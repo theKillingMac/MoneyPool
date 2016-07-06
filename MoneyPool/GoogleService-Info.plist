@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>64847318510-vpffhur7tf8qb2f8tpli7v1vslq4gdc1.apps.googleusercontent.com</string>
+	<string>191560403808-ojm96f3abva3fhe8n8uleqnrjivd6ch0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.64847318510-vpffhur7tf8qb2f8tpli7v1vslq4gdc1</string>
+	<string>com.googleusercontent.apps.191560403808-ojm96f3abva3fhe8n8uleqnrjivd6ch0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBas0NcYvU2hiHXhM1FEyIWgkrzo2DqjIw</string>
+	<string>AIzaSyCsoSAU2oS1dpnRZpUTyvQO3lqOBUfcXVA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>64847318510</string>
+	<string>191560403808</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>br.com.bol.jbastosneto.MoneyPool</string>
+	<string>com.gmail.make.school.projects.MoneyPool</string>
 	<key>PROJECT_ID</key>
-	<string>moneypool-235e7</string>
+	<string>moneypool-2e0ab</string>
 	<key>STORAGE_BUCKET</key>
-	<string>moneypool-235e7.appspot.com</string>
+	<string>moneypool-2e0ab.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:64847318510:ios:267895f7c14359a1</string>
+	<string>1:191560403808:ios:de5c134960d349cb</string>
 	<key>DATABASE_URL</key>
-	<string>https://moneypool-235e7.firebaseio.com</string>
+	<string>https://moneypool-2e0ab.firebaseio.com</string>
 </dict>
 </plist>

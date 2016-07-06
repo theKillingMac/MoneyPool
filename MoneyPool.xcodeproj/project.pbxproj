@@ -14,7 +14,9 @@
 		04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */; };
 		04257CBE1D2C698B00F34956 /* MoneyPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CBD1D2C698B00F34956 /* MoneyPoolTests.swift */; };
 		04257CC91D2C698B00F34956 /* MoneyPoolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04257CC81D2C698B00F34956 /* MoneyPoolUITests.swift */; };
-		04257CD91D2C782B00F34956 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04257CD81D2C782B00F34956 /* GoogleService-Info.plist */; };
+		044B39281D2C8B400058E3EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 044B39271D2C8B400058E3EB /* GoogleService-Info.plist */; };
+		044B392C1D2C8CD20058E3EB /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B392B1D2C8CD20058E3EB /* FirebaseHelper.swift */; };
+		044B392F1D2C903B0058E3EB /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B392E1D2C903B0058E3EB /* Pool.swift */; };
 		142D220A9E5BEEC29323F2F1 /* Pods_MoneyPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D79C75AB9FDCC712AB4E34 /* Pods_MoneyPool.framework */; };
 		84384EABB75C2A0FFA134FBF /* Pods_MoneyPoolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772AC31E89775B861E694516 /* Pods_MoneyPoolTests.framework */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
@@ -52,7 +54,9 @@
 		04257CC41D2C698B00F34956 /* MoneyPoolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoneyPoolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04257CC81D2C698B00F34956 /* MoneyPoolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyPoolUITests.swift; sourceTree = "<group>"; };
 		04257CCA1D2C698B00F34956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04257CD81D2C782B00F34956 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		044B39271D2C8B400058E3EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		044B392B1D2C8CD20058E3EB /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseHelper.swift; path = Helpers/FirebaseHelper.swift; sourceTree = "<group>"; };
+		044B392E1D2C903B0058E3EB /* Pool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pool.swift; path = Model/Pool.swift; sourceTree = "<group>"; };
 		46FC17EB0396694BF14EB738 /* Pods-MoneyPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPool/Pods-MoneyPool.release.xcconfig"; sourceTree = "<group>"; };
 		51A2F7DDB3240B12D81FBC88 /* Pods-MoneyPoolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolTests/Pods-MoneyPoolTests.debug.xcconfig"; sourceTree = "<group>"; };
 		63AE05590030BE5CB4DBA907 /* Pods-MoneyPoolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPoolUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPoolUITests/Pods-MoneyPoolUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,11 +120,13 @@
 		04257CA71D2C698B00F34956 /* MoneyPool */ = {
 			isa = PBXGroup;
 			children = (
+				044B392D1D2C8FF20058E3EB /* Model */,
 				04257CD71D2C77E900F34956 /* Controllers */,
 				04257CD61D2C77DA00F34956 /* Views */,
+				044B392A1D2C8CA10058E3EB /* Helpers */,
 				04257CAF1D2C698B00F34956 /* Assets.xcassets */,
 				04257CB41D2C698B00F34956 /* Info.plist */,
-				04257CD81D2C782B00F34956 /* GoogleService-Info.plist */,
+				044B39271D2C8B400058E3EB /* GoogleService-Info.plist */,
 			);
 			path = MoneyPool;
 			sourceTree = "<group>";
@@ -159,6 +165,22 @@
 				04257CAA1D2C698B00F34956 /* ViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		044B392A1D2C8CA10058E3EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				044B392B1D2C8CD20058E3EB /* FirebaseHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		044B392D1D2C8FF20058E3EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				044B392E1D2C903B0058E3EB /* Pool.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		737FA04BF5F3407BBDDAF247 /* Frameworks */ = {
@@ -298,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */,
-				04257CD91D2C782B00F34956 /* GoogleService-Info.plist in Resources */,
+				044B39281D2C8B400058E3EB /* GoogleService-Info.plist in Resources */,
 				04257CB01D2C698B00F34956 /* Assets.xcassets in Resources */,
 				04257CAE1D2C698B00F34956 /* Main.storyboard in Resources */,
 			);
@@ -449,7 +471,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04257CAB1D2C698B00F34956 /* ViewController.swift in Sources */,
+				044B392C1D2C8CD20058E3EB /* FirebaseHelper.swift in Sources */,
 				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,
+				044B392F1D2C903B0058E3EB /* Pool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +621,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MoneyPool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.make.school.projects.MoneyPool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -610,7 +634,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MoneyPool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.bol.jbastosneto.MoneyPool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.make.school.projects.MoneyPool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
