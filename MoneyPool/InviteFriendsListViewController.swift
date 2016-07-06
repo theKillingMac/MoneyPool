@@ -13,6 +13,7 @@ class InviteFriendsListViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	let friends: [String] = ["John", "Tom", "Harry"]
+	let friendsImages: [UIImage] = []
 	let invitedFriends = [String]()
 	
     override func viewDidLoad() {
@@ -45,7 +46,12 @@ extension InviteFriendsListViewController: UITableViewDataSource, UITableViewDel
 		return friends.count
 	}
 	
-	cell
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
+		cell.friendNameLabel.text = friends[indexPath.row]
+		//need to set the image of the friend
+		return cell
+	}
 	
 	
 }

@@ -25,6 +25,7 @@ class InviteFriendListTableViewCell: UITableViewCell {
     }
 
 	@IBAction func inviteFriendButtonPushed(sender: UIButton) {
+		sender.selected = !sender.selected
 	}
 	
 }
