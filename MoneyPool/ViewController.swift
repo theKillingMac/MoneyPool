@@ -11,71 +11,42 @@ import Firebase
 
 class ViewController: UIViewController {
     
-    var ref: FIRDatabaseReference!
+    // Data Source Handler
+    let dataSource = DataSource()
+    
+    // Lazy instantiation of firebase ref
+    var firebaseHelper: FirebaseHelper = {
+        return FirebaseHelper()
+    }()
+    
+    let userInfo = ["firstName": "test", "lastName": "user2", "nickname": "test2", "email": "test2@hello.com", "imgUrl": "htt://www.imageToFirebase.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = FIRDatabase.database().reference()
-        // Create a reference to Firebase database
-        print(ref)
         
+//        firebaseHelper.createUserWithEmail("test2@hello.com", andPassword: "123456")
+        firebaseHelper.loginWithEmail("test2@hello.com", andPassword: "123456")
         
-//        // Create a user in firebase
-//        FIRAuth.auth()?.createUserWithEmail("test@hello.com", password: "123456", completion: { (user: FIRUser?, error: NSError?) in
-//            if error != nil {
-//                print("Error cretaing user in firebase \(error?.localizedDescription)")
-//            } else {
-//                self.user = user!
-//                print(self.user)
-//            }
-//        })
+        let user = User(info: userInfo)
         
-//        if user != nil {
-//            FIRAuth.auth()?.signInWithEmail("test@hello.com", password: "123456", completion: { (user: FIRUser?, error: NSError?) in
-//                if error != nil {
-//                    print("Error cretaing user in firebase \(error?.localizedDescription)")
-//                    
-//                }
-//            })
-//
-//        }
-        
-        FIRAuth.auth()?.signInWithEmail("test@hello.com", password: "123456", completion: { (user: FIRUser?, error: NSError?) in
-            if error != nil {
-                print("Error cretaing user in firebase \(error?.localizedDescription)")
-                
-            } else if let user = user {
-                let userInfo = ["username": "Test user", "email": "test@hello.com"]
-                
-                // get ref to user in firebase database
-                let userRef = self.ref.child(user.uid)
-                // add user data to user database 
-                userRef.setValue(userInfo)
-                
-                // get ref to pools in firebase database
-                let poolRef = self.ref.child("pools")
-                // create pool in the pools database with auto id
-                let pool = poolRef.childByAutoId()
-                
-                // create pool data
-                let poolData = ["title": "MY First Pool", "pool description": "This is a test pool", "amount": 200, "groupesNumber": 10]
-                
-                // add pool information to the pool in firebase
-                pool.setValue(poolData)
-                
-                
-            }
-        })
-
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        // saving user to firebase
+        firebaseHelper.saveData(user, toRefPoint: .Users)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        // firebase observer for changes
+        firebaseHelper.addValueObserverForRefPoint(RefPoint.Users) { (usersSnapshot: FIRDataSnapshot) in
+            print("Printing user data from firebase \(usersSnapshot)")
+        }
     }
-
-
 }
+
+
+
+
+
+
+
 

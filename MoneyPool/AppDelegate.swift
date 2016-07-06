@@ -13,13 +13,18 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var firebaseHelper: FirebaseHelper!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         // Configure Firebase API
         FIRApp.configure()
+        
+        // Create a reference to firebase database
+        firebaseHelper = FirebaseHelper()
+        
+        print("FirebaseHelper instance \(FirebaseHelper.rootRef)")
         
         return true
     }
