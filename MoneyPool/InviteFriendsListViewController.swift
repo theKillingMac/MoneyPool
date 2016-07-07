@@ -39,12 +39,13 @@ class InviteFriendsListViewController: UIViewController {
 		}
 	}
 	
-	//var friendsOfCurrentUser = [User]()
+	var allUsersInFirebase = [User]()
+	var friendsOfCurrentUser = [User]()
 	
 	let friendsImages: [UIImage] = []
 	var invitedFriends = [String]()
 	
-	var firebase = FirebaseHelper()
+	//var firebase = FirebaseHelper()
 	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
 	
@@ -53,27 +54,36 @@ class InviteFriendsListViewController: UIViewController {
 		tableView.delegate = self
 		displayFriends = allFriends
 		
-		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
-			self.updateTable(result)
-		}
-		
+//		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
+//			let allFriends = result.value as! [String: AnyObject]
+//			self.updateTable(allFriends)
+//		}
+//		
+//		firebase.addSingleObserverForRefPoint(RefPoint.Users) { (result: FIRDataSnapshot) in
+//			let allUsers = result.value as! [String: AnyObject]
+//			for user in allUsers {
+//				
+//				self.allUsersInFirebase.append(User(info: user as! [String: AnyObject]))
+//			}
+//		}
+
         // Do any additional setup after loading the view.
     }
 
 	
-	func updateTable(data: FIRDataSnapshot){
-		let newData = data.value as! [String: AnyObject]
-		
-		if let friendsArrayOfCurrentUser = newData[currentUser] { //the array contains dictionairies
-			//print(friendsArrayOfCurrentUser)
-			
-			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
-				//friendData is a tuple of the userID and the boolean value(always true)
-				allFriends.append(friendData.0)
-			}
-		}
-		
-	}
+//	func updateTable(friendsData: [String: AnyObject]){
+//		
+//		if let friendsArrayOfCurrentUser = friendsData[currentUser] { //the array contains dictionairies
+//			//print(friendsArrayOfCurrentUser)
+//			
+//			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
+//				//friendData is a tuple of the userID and the boolean value(always true)
+//				allFriends.append(friendData.0)
+//			}
+//
+//		}
+//		
+//	}
 	
 	
 	
@@ -131,6 +141,10 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
 		displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+	}
+	
+	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		self.view.endEditing(true)
 	}
 	
 }
