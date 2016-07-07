@@ -39,7 +39,6 @@ extension addNewFriendsViewController: UISearchBarDelegate{
 	}
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-		print("pressed search")
 		self.view.endEditing(true)
 		searchBar.showsCancelButton = true
 	}

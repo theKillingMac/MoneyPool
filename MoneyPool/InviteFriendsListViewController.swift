@@ -145,6 +145,7 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 		self.view.endEditing(true)
+		searchBar.showsCancelButton = true
 	}
 	
 }
