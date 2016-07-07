@@ -7,26 +7,59 @@
 //
 
 import UIKit
+import Firebase
 
 class InviteFriendsListViewController: UIViewController {
 
 	@IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet weak var tableView: UITableView!
 	
-	let allFriends: [String] = ["John", "Tom", "Harry"]
-	var displayFriends: [String] = []
+	var allFriends: [String] = [] {
+		didSet{
+			displayFriends = allFriends
+		}
+	}
+	
+	var displayFriends: [String] = [] {
+		didSet{
+			tableView.reloadData()
+		}
+	}
+	
 	let friendsImages: [UIImage] = []
 	var invitedFriends = [String]()
+	
+	var firebase = FirebaseHelper()
+	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
+	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.delegate = self
 		displayFriends = allFriends
 		
+		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
+			self.updateTable(result)
+		}
+		
         // Do any additional setup after loading the view.
     }
 
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
+	}
+	
+	func updateTable(data: FIRDataSnapshot){
+		let newData = data.value as! [String: AnyObject]
+		
+		if let friendsArrayOfCurrentUser = newData[currentUser] { //the array contains dictionairies
+			//print(friendsArrayOfCurrentUser)
+			
+			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
+				//friendData is a tuple of the userID and the boolean value(always true)
+				allFriends.append(friendData.0)
+			}
+		}
+		
 	}
 
 }
@@ -62,14 +95,10 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 		searchBar.text = ""
 		searchBar.setShowsCancelButton(false, animated: true)
 		displayFriends = allFriends
-		tableView.reloadData()
 	}
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		print(searchText)
 		displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
-		print(displayFriends)
-		tableView.reloadData()
 	}
 	
 }
@@ -78,11 +107,9 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
 	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String){
 		invitedFriends.append(invitedFriend)
-		print(invitedFriends)
 	}
 	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String){
 		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
-		print(invitedFriends)
 	}
 
 }

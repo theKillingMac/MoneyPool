@@ -18,55 +18,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l4l-8o-ii2">
-                                <rect key="frame" x="0.0" y="116" width="600" height="414"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l4l-8o-ii2">
+                                <rect key="frame" x="0.0" y="54" width="600" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="mIU-uY-NzJ" customClass="InviteFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mIU-uY-NzJ" id="C2V-zu-prF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="cDJ-dd-keF" customClass="InviteFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDJ-dd-keF" id="7Da-Y2-54x">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qP6-Mc-GV5">
-                                                    <rect key="frame" x="72" y="18" width="345" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-7V-iqU">
+                                                    <rect key="frame" x="72" y="21" width="345" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3to-uu-Dt4">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y0-RX-PaY">
                                                     <rect key="frame" x="442" y="15" width="150" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="oiA-Gp-AbH"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Nec-IY-m5n"/>
                                                     </constraints>
                                                     <state key="normal" title="Invite"/>
                                                     <state key="selected" title="Invited"/>
                                                     <connections>
-                                                        <action selector="inviteFriendButtonPushed:" destination="mIU-uY-NzJ" eventType="touchUpInside" id="dpC-yi-fhu"/>
+                                                        <action selector="inviteFriendButtonPushed:" destination="cDJ-dd-keF" eventType="touchUpInside" id="z4O-nP-LEv"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ohz-bH-5nN">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4x-Tp-Toi">
                                                     <rect key="frame" x="8" y="2" width="55" height="55"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="55" id="cJV-WP-rQw"/>
-                                                        <constraint firstAttribute="height" constant="55" id="dTl-oE-xuh"/>
+                                                        <constraint firstAttribute="height" constant="55" id="1EI-PO-P8P"/>
+                                                        <constraint firstAttribute="width" constant="55" id="VQN-sV-KYD"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ohz-bH-5nN" firstAttribute="leading" secondItem="C2V-zu-prF" secondAttribute="leading" constant="8" id="Ell-PB-lhh"/>
-                                                <constraint firstItem="qP6-Mc-GV5" firstAttribute="centerY" secondItem="C2V-zu-prF" secondAttribute="centerY" id="J4s-lI-BNJ"/>
-                                                <constraint firstItem="3to-uu-Dt4" firstAttribute="centerY" secondItem="C2V-zu-prF" secondAttribute="centerY" id="MIB-EK-FIY"/>
-                                                <constraint firstItem="3to-uu-Dt4" firstAttribute="leading" secondItem="qP6-Mc-GV5" secondAttribute="trailing" constant="25" id="OeQ-gT-jUt"/>
-                                                <constraint firstItem="ohz-bH-5nN" firstAttribute="centerY" secondItem="C2V-zu-prF" secondAttribute="centerY" id="gsE-x9-ELN"/>
-                                                <constraint firstItem="3to-uu-Dt4" firstAttribute="trailing" secondItem="C2V-zu-prF" secondAttribute="trailingMargin" id="t6q-gU-e4J"/>
-                                                <constraint firstItem="qP6-Mc-GV5" firstAttribute="leading" secondItem="ohz-bH-5nN" secondAttribute="trailing" constant="9" id="tcD-vo-txW"/>
+                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="9hR-gC-K7D"/>
+                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="DGl-9M-1X7"/>
+                                                <constraint firstItem="u4x-Tp-Toi" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="FOw-bp-dGB"/>
+                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="trailing" secondItem="7Da-Y2-54x" secondAttribute="trailingMargin" id="OsS-k0-88Q"/>
+                                                <constraint firstItem="u4x-Tp-Toi" firstAttribute="leading" secondItem="7Da-Y2-54x" secondAttribute="leading" constant="8" id="RGC-0D-LTN"/>
+                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="leading" secondItem="DeC-7V-iqU" secondAttribute="trailing" constant="25" id="hLG-e9-Qm2"/>
+                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="leading" secondItem="u4x-Tp-Toi" secondAttribute="trailing" constant="9" id="os4-97-HZt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="friendNameLabel" destination="qP6-Mc-GV5" id="KXd-Wp-hQZ"/>
-                                            <outlet property="inviteFriendButton" destination="3to-uu-Dt4" id="dX5-GI-aqV"/>
+                                            <outlet property="friendNameLabel" destination="DeC-7V-iqU" id="ted-n0-hRf"/>
+                                            <outlet property="inviteFriendButton" destination="5Y0-RX-PaY" id="o3G-5X-IVB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -97,26 +97,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aX6-bV-3PW" firstAttribute="centerX" secondItem="jmu-j2-CfJ" secondAttribute="centerX" id="0DM-sI-f7j"/>
                             <constraint firstAttribute="trailing" secondItem="l4l-8o-ii2" secondAttribute="trailing" id="8dC-Rv-lRO"/>
                             <constraint firstItem="aX6-bV-3PW" firstAttribute="centerX" secondItem="jmu-j2-CfJ" secondAttribute="centerX" id="Alq-Io-a7o"/>
                             <constraint firstItem="l4l-8o-ii2" firstAttribute="leading" secondItem="jmu-j2-CfJ" secondAttribute="leading" id="C6H-nl-LqY"/>
                             <constraint firstItem="7G6-91-Heo" firstAttribute="leading" secondItem="jmu-j2-CfJ" secondAttribute="leading" id="I1s-QR-JSB"/>
                             <constraint firstItem="Bzi-Cf-mck" firstAttribute="top" secondItem="aX6-bV-3PW" secondAttribute="bottom" constant="20" id="KoX-ts-07C"/>
-                            <constraint firstItem="l4l-8o-ii2" firstAttribute="top" secondItem="7G6-91-Heo" secondAttribute="bottom" constant="8" id="PuA-b8-cBC"/>
-                            <constraint firstItem="7G6-91-Heo" firstAttribute="trailing" secondItem="l4l-8o-ii2" secondAttribute="trailing" id="agw-oB-D63"/>
-                            <constraint firstItem="7G6-91-Heo" firstAttribute="leading" secondItem="l4l-8o-ii2" secondAttribute="leading" id="eq5-JW-wdm"/>
+                            <constraint firstItem="l4l-8o-ii2" firstAttribute="top" secondItem="jmu-j2-CfJ" secondAttribute="topMargin" constant="54" id="hIN-eo-iM6"/>
                             <constraint firstAttribute="trailing" secondItem="7G6-91-Heo" secondAttribute="trailing" id="isv-Sh-5G0"/>
                             <constraint firstItem="7G6-91-Heo" firstAttribute="top" secondItem="ZNp-8V-dEY" secondAttribute="bottom" id="mxZ-9b-stt"/>
                             <constraint firstItem="Bzi-Cf-mck" firstAttribute="top" secondItem="l4l-8o-ii2" secondAttribute="bottom" constant="70" id="pl6-96-rzQ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="agw-oB-D63"/>
-                                <exclude reference="eq5-JW-wdm"/>
-                                <exclude reference="0DM-sI-f7j"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Invite Friends to the Pool" id="1nN-GP-Btt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yW1-UY-Wrx"/>
