@@ -18,20 +18,22 @@ class InviteFriendsListViewController: UIViewController {
 	struct partiallyMadeInvitation {
 		let info: String
 		let title: String
-		let recurringAmount: Int
-		let amountToRaise: Int
+		let recurringAmount: Double
+		let amountToRaise: Double
 		let numberOfPayments: Int
 		let paymentsMadeEveryTimePeriod: String
 	}
 	
 	//Information given when segued to this view controller
-	var incompleteInvitation: partiallyMadeInvitation!
+	var incompleteInvitation: partiallyMadeInvitation = partiallyMadeInvitation(info: "description of pool", title: "title of pool", recurringAmount: 50, amountToRaise: 400, numberOfPayments: 8, paymentsMadeEveryTimePeriod: "weekly")
 	
-//	var allFriends: [String] = [] {
-//		didSet{
-//			displayFriends = allFriends
-//		}
-//	}
+	
+	
+	var allFriends: [String] = ["-KLzPHdO_rEwJuaxA1nr", "user-123456", "-KM-xqDASUJHTA7yWOYA"] {
+		didSet{
+			//displayFriends = allFriends
+		}
+	}
 	
 //	var displayFriends: [String] = [] {
 //		didSet{
@@ -48,11 +50,11 @@ class InviteFriendsListViewController: UIViewController {
 	//var firebase = FirebaseHelper()
 	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
-	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
+	//let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		tableView.dataSource = dataSource
+		//tableView.dataSource = dataSource
 		tableView.delegate = self
 		//displayFriends = allFriends
 		
@@ -89,24 +91,24 @@ class InviteFriendsListViewController: UIViewController {
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
-		dataSource.addOFirebaseObserverForRefPoint(.Friends)
+		//dataSource.addOFirebaseObserverForRefPoint(.Friends)
 	}
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
 		//make an invitation and save to Firebase
 		
 		//right now all variables in invitation just listed - NOT DONE the structs for paymentPlan etc
+		print("button pushed")
+		let invitation = Invitation(title: incompleteInvitation.title,
+		                            info: incompleteInvitation.info,
+		                            recurringAmount: incompleteInvitation.recurringAmount,
+		                            amountToRaise: incompleteInvitation.amountToRaise,
+		                            numberOfPayments: incompleteInvitation.numberOfPayments,
+		                            paymentsMadeEveryTimePeriod: incompleteInvitation.paymentsMadeEveryTimePeriod,
+		                            usersID: allFriends)
 		
-//		let invitation = Invitation(title: incompleteInvitation.title,
-//		                            info: incompleteInvitation.info,
-//		                            recurringAmount: incompleteInvitation.recurringAmount,
-//		                            amountToRaise: incompleteInvitation.amountToRaise,
-//		                            numberOfPayments: incompleteInvitation.numberOfPayments,
-//		                            paymentsMadeEveryTimePeriod: incompleteInvitation.paymentsMadeEveryTimePeriod,
-//		                            usersID: allFriends)
-//		
-//		let firebase = FirebaseHelper()
-//		firebase.saveData(invitation, toRefPoint: RefPoint.Invitation)
+		let firebase = FirebaseHelper()
+		firebase.saveData(invitation, toRefPoint: RefPoint.Invitations)
 	}
 
 }
@@ -168,10 +170,10 @@ extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
 
 }
 
-extension InviteFriendsListViewController: DataSourceDelegate{
-	func updateData() {
-		print("I AM UPDATING THE TABLE...")
-		tableView.reloadData()
-	}
-}
+//extension InviteFriendsListViewController: DataSourceDelegate{
+//	func updateData() {
+//		print("I AM UPDATING THE TABLE...")
+//		tableView.reloadData()
+//	}
+//}
 

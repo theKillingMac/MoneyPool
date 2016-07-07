@@ -68,8 +68,6 @@ class FirebaseHelper {
             saveToPools(data)
         case .Invitations:
             saveToInvitaion(data)
-		case .Friends:
-			saveToFriends(data)
         }
     }
     
@@ -92,6 +90,7 @@ class FirebaseHelper {
     }
     
     private func saveToInvitaion(data: FirebaseConvertible) {
+		print("saving invitation...")
         FirebaseHelper._rootRef.child(RefPoint.Invitations.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
             if error != nil {
                 ErrorHandling.defaultErrorHandler(error!)
