@@ -77,6 +77,19 @@ class InviteFriendsListViewController: UIViewController {
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
 		//make an invitation and save to Firebase
+		
+		//right now all variables in invitation just listed - NOT DONE the structs for paymentPlan etc
+		
+//		let invitation = Invitation(title: incompleteInvitation.title,
+//		                            info: incompleteInvitation.info,
+//		                            recurringAmount: incompleteInvitation.recurringAmount,
+//		                            amountToRaise: incompleteInvitation.amountToRaise,
+//		                            numberOfPayments: incompleteInvitation.numberOfPayments,
+//		                            paymentsMadeEveryTimePeriod: incompleteInvitation.paymentsMadeEveryTimePeriod,
+//		                            usersID: allFriends)
+//		
+//		let firebase = FirebaseHelper()
+//		firebase.saveData(invitation, toRefPoint: RefPoint.Invitation)
 	}
 
 }
