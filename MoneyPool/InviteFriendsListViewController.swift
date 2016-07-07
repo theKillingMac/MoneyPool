@@ -14,6 +14,19 @@ class InviteFriendsListViewController: UIViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet weak var tableView: UITableView!
 	
+	//Contains everything except the invities
+	struct partiallyMadeInvitation {
+		let info: String
+		let title: String
+		let recurringAmount: Int
+		let amountToRaise: Int
+		let numberOfPayments: Int
+		let paymentsMadeEveryTimePeriod: String
+	}
+	
+	//Information given when segued to this view controller
+	var incompleteInvitation: partiallyMadeInvitation!
+	
 	var allFriends: [String] = [] {
 		didSet{
 			displayFriends = allFriends
@@ -45,8 +58,6 @@ class InviteFriendsListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
-	}
 	
 	func updateTable(data: FIRDataSnapshot){
 		let newData = data.value as! [String: AnyObject]
@@ -60,6 +71,12 @@ class InviteFriendsListViewController: UIViewController {
 			}
 		}
 		
+	}
+	
+	
+	
+	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
+		//make an invitation and save to Firebase
 	}
 
 }
