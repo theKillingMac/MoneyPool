@@ -15,7 +15,7 @@ protocol FirebaseConvertible {
 enum RefPoint: String {
     case Users = "users"
     case Pools = "pools"
-    case Invitations = "invitaions"
+    case Invitations = "invitations"
     case Friends = "friends"
 }
 
@@ -81,9 +81,6 @@ class FirebaseHelper {
         }
     }
     
-    private func saveToFriends(data: FirebaseConvertible) {
-        
-    }
     
     private func saveToPools(data: FirebaseConvertible) {
         
