@@ -10,7 +10,13 @@ import UIKit
 
 class InvitaionTableViewCell: UITableViewCell {
     
-    private var invitaion: Invitation?
+    private var invitaion: Invitation? {
+        didSet {
+            if invitaion != nil {
+                //TODO: IMPLEMENTATION
+            }
+        }
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var accepted: UILabel!

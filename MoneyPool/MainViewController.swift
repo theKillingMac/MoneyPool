@@ -12,7 +12,7 @@ import Firebase
 class MainViewController: UIViewController {
     
     // Data Source Handler
-    let dataSource = DataSource()
+    let dataSource = DataSource(dataSourceType: DataSourceType.MainTableView)
     
     // Lazy instantiation of firebase ref
     var firebaseHelper: FirebaseHelper = {
@@ -40,7 +40,8 @@ class MainViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        dataSource.addOFirebaseObserver()
+//        dataSource.addOFirebaseObserver()
+        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Pools)
     }
 }
 
