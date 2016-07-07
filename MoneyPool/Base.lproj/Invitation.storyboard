@@ -205,6 +205,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5yx-In-ewt" id="rSq-9b-1eA"/>
+                                    <outlet property="delegate" destination="5yx-In-ewt" id="a6D-Yh-EGg"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-x1-2qD">
                                 <rect key="frame" x="146" y="544" width="308" height="36"/>
@@ -214,12 +218,18 @@
                                         <color key="backgroundColor" red="0.34783588209999999" green="1" blue="0.42652657220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="ACCEPT"/>
+                                        <connections>
+                                            <action selector="acceptOrDeclineButtonPushed:" destination="5yx-In-ewt" eventType="touchUpInside" id="WC8-VU-fAm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqi-RO-utC">
                                         <rect key="frame" x="227" y="0.0" width="81" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="DECLINE"/>
+                                        <connections>
+                                            <action selector="acceptOrDeclineButtonPushed:" destination="5yx-In-ewt" eventType="touchUpInside" id="sdp-he-d4R"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -323,6 +333,14 @@
                             <constraint firstItem="3Fe-Uj-Udp" firstAttribute="top" secondItem="Nn5-kD-7pw" secondAttribute="bottom" constant="8" id="wQb-Dx-kjP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountToRaise" destination="wn4-Ig-C9m" id="eUK-ge-Umd"/>
+                        <outlet property="numberOfPayments" destination="E0w-T3-zJ6" id="Jiy-MU-jMn"/>
+                        <outlet property="paymentsMadeEveryTimePeriod" destination="BRr-ct-1DJ" id="Yz6-fQ-b7I"/>
+                        <outlet property="poolInfo" destination="Nn5-kD-7pw" id="oSP-JF-Stw"/>
+                        <outlet property="recurringAmount" destination="wJN-Bl-xD6" id="2CN-g1-iHt"/>
+                        <outlet property="tableView" destination="ZMe-l9-2v2" id="1gE-J9-T4h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVd-70-yaG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
