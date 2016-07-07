@@ -27,17 +27,17 @@ class InviteFriendsListViewController: UIViewController {
 	//Information given when segued to this view controller
 	var incompleteInvitation: partiallyMadeInvitation!
 	
-	var allFriends: [String] = [] {
-		didSet{
-			displayFriends = allFriends
-		}
-	}
+//	var allFriends: [String] = [] {
+//		didSet{
+//			displayFriends = allFriends
+//		}
+//	}
 	
-	var displayFriends: [String] = [] {
-		didSet{
-			tableView.reloadData()
-		}
-	}
+//	var displayFriends: [String] = [] {
+//		didSet{
+//			tableView.reloadData()
+//		}
+//	}
 	
 	var allUsersInFirebase = [User]()
 	var friendsOfCurrentUser = [User]()
@@ -48,11 +48,13 @@ class InviteFriendsListViewController: UIViewController {
 	//var firebase = FirebaseHelper()
 	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
+	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.dataSource = dataSource
 		tableView.delegate = self
-		displayFriends = allFriends
+		//displayFriends = allFriends
 		
 //		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
 //			let allFriends = result.value as! [String: AnyObject]
@@ -85,7 +87,10 @@ class InviteFriendsListViewController: UIViewController {
 //		
 //	}
 	
-	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		dataSource.addOFirebaseObserverForRefPoint(.Friends)
+	}
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
 		//make an invitation and save to Firebase
@@ -106,23 +111,25 @@ class InviteFriendsListViewController: UIViewController {
 
 }
 
-//MARK: Table View
-extension InviteFriendsListViewController: UITableViewDataSource, UITableViewDelegate{
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return displayFriends.count
-	}
-	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
-		cell.friendNameLabel.text = displayFriends[indexPath.row]
-		//need to set the image of the friend
-		
-		cell.delegate = self
-		return cell
-	}
-	
-	
+////MARK: Table View
+extension InviteFriendsListViewController: UITableViewDelegate{
+
 }
+//	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//		return displayFriends.count
+//	}
+//	
+//	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
+//		cell.friendNameLabel.text = displayFriends[indexPath.row]
+//		//need to set the image of the friend
+//		
+//		cell.delegate = self
+//		return cell
+//	}
+//	
+//	
+//}
 
 //MARK: Search Bar
 extension InviteFriendsListViewController: UISearchBarDelegate{
@@ -136,11 +143,11 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 		searchBar.resignFirstResponder()
 		searchBar.text = ""
 		searchBar.setShowsCancelButton(false, animated: true)
-		displayFriends = allFriends
+		//displayFriends = allFriends
 	}
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		//displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
 	}
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -159,5 +166,12 @@ extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
 		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
 	}
 
+}
+
+extension InviteFriendsListViewController: DataSourceDelegate{
+	func updateData() {
+		print("I AM UPDATING THE TABLE...")
+		tableView.reloadData()
+	}
 }
 
