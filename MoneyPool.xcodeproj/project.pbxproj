@@ -24,6 +24,7 @@
 		044B39391D2CD8820058E3EB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B39381D2CD8820058E3EB /* DataSource.swift */; };
 		044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393A1D2CE11E0058E3EB /* ErrorHandling.swift */; };
 		044B393D1D2CF8250058E3EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393C1D2CF8250058E3EB /* User.swift */; };
+		04C9ACB91D2E1DDE006B5383 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */; };
 		04E182621D2DA48D00FF8D7B /* Invitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E182601D2DA48D00FF8D7B /* Invitation.storyboard */; };
 		04E182641D2DA4BC00FF8D7B /* Pool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E182631D2DA4BC00FF8D7B /* Pool.storyboard */; };
 		142D220A9E5BEEC29323F2F1 /* Pods_MoneyPool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D79C75AB9FDCC712AB4E34 /* Pods_MoneyPool.framework */; };
@@ -33,7 +34,6 @@
 		B20B66A21D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B66A01D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift */; };
 		B20B66A31D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */; };
 		B2F8572C1D2DB1960008FF44 /* PoolInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */; };
-		B2F8572E1D2DBBA00008FF44 /* PoolInvitationFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F8572D1D2DBBA00008FF44 /* PoolInvitationFriendListTableViewCell.swift */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +79,7 @@
 		044B39381D2CD8820058E3EB /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = Model/DataSource.swift; sourceTree = "<group>"; };
 		044B393A1D2CE11E0058E3EB /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
 		044B393C1D2CF8250058E3EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		04E182611D2DA48D00FF8D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invitation.storyboard; sourceTree = "<group>"; };
 		04E182631D2DA4BC00FF8D7B /* Pool.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pool.storyboard; sourceTree = "<group>"; };
 		46FC17EB0396694BF14EB738 /* Pods-MoneyPool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyPool.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyPool/Pods-MoneyPool.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				04257CAC1D2C698B00F34956 /* Main.storyboard */,
+				04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */,
 				04E182631D2DA4BC00FF8D7B /* Pool.storyboard */,
 				04E182601D2DA48D00FF8D7B /* Invitation.storyboard */,
 				B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */,
@@ -372,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C9ACB91D2E1DDE006B5383 /* Menu.storyboard in Resources */,
 				04257CB31D2C698B00F34956 /* LaunchScreen.storyboard in Resources */,
 				044B39281D2C8B400058E3EB /* GoogleService-Info.plist in Resources */,
 				04E182641D2DA4BC00FF8D7B /* Pool.storyboard in Resources */,

@@ -17,6 +17,16 @@ struct ErrorHandling {
     
     /// Present a Alert on the topmost view controller
     static func defaultErrorHandler(error: NSError) {
+        print(#function, "Error occured \(error)")
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: okButtonTitle, style: .Default, handler: nil))
+        
+        // get reference for the topmost view controller
+        let viewController = UIApplication.sharedApplication().windows[0].window?.rootViewController
+        viewController?.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    static func customErrorMessage(message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: okButtonTitle, style: .Default, handler: nil))
         

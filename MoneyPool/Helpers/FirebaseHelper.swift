@@ -14,7 +14,7 @@ protocol FirebaseConvertible {
 
 enum RefPoint: String {
     case Users = "users"
-    case Pools = "Pools"
+    case Pools = "pools"
     case Invitation = "invitaion"
 }
 

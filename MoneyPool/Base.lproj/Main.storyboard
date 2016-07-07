@@ -76,13 +76,13 @@
                                                             <rect key="frame" x="491" y="0.0" width="77" height="45"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33w-c2-mD0">
-                                                                    <rect key="frame" x="26" y="0.0" width="26" height="17"/>
+                                                                    <rect key="frame" x="26" y="0.0" width="26" height="25"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$1,500.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWC-NL-cTQ">
-                                                                    <rect key="frame" x="0.0" y="17" width="77" height="28"/>
+                                                                    <rect key="frame" x="0.0" y="25" width="77" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -179,14 +179,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="coh-XZ-QJZ">
                                                             <rect key="frame" x="516" y="0.0" width="52" height="46"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-mm-Kkg">
-                                                                    <rect key="frame" x="10" y="0.0" width="32" height="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-mm-Kkg">
+                                                                    <rect key="frame" x="10" y="0.0" width="32" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2 Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9j-JS-IAf">
-                                                                    <rect key="frame" x="0.0" y="17" width="52" height="29"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2 Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9j-JS-IAf">
+                                                                    <rect key="frame" x="0.0" y="26" width="52" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -226,6 +226,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MoneyPool" id="OXq-VI-LW9">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="xJi-7Y-rOY">
+                            <connections>
+                                <segue destination="wFS-61-EH8" kind="presentation" identifier="presentMenuViewController" id="6Le-hc-AB1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mQC-6u-soG">
                             <connections>
                                 <segue destination="ToM-J7-kLG" kind="show" id="82m-L9-d9c"/>
@@ -273,6 +278,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYb-9U-bEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3789" y="402"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="tgI-wy-d9P">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="wFS-61-EH8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmi-q5-ELS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2894" y="-497"/>
         </scene>
     </scenes>
 </document>
