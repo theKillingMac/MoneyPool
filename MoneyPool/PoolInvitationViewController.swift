@@ -60,6 +60,7 @@ class PoolInvitationViewController: UIViewController {
 	//MARK Accept/Decline Button
 	@IBAction func acceptOrDeclineButtonPushed(sender: UIButton) {
 		//find current user in the invitation on firebase
+		//or can u change the local invitation copy and save?!?
 		//change its status to...
 		
 		if sender.titleLabel?.text == "ACCEPT"{
