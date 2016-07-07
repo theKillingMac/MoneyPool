@@ -10,7 +10,16 @@ import UIKit
 
 class PoolTableViewCell: UITableViewCell {
     
-    private var pool: Pool?
+    private var pool: Pool? {
+        didSet {
+            if pool != nil {
+                titleLabel.text = pool!.eventName
+                toRaiseLabel.text = "\(pool!.amountGoal)"
+                raisedLabel.text = "\(pool!.amountRised)"
+                leftToRaiseLabel.text = "\(pool!.amountGoal - pool!.amountRised)"
+            }
+        }
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var toRaiseLabel: UILabel!

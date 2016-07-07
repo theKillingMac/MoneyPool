@@ -8,27 +8,34 @@
 
 import Foundation
 
-struct Invitation { //: MoneyPoolType {
+struct Invitation: MoneyPoolType {
 	
 	let info: String
 	let title: String
-	let recurringAmount: Int
-	let amountToRaise: Int
+	let recurringAmount: Double
+	let amountToRaise: Double
 	let numberOfPayments: Int
 	let paymentsMadeEveryTimePeriod: String
 	
 	let usersID: [String]
 	
 	
-//    init(info: [String : AnyObject]) {
-//        // TODO: implement
-//    }
+    init(info: [String : AnyObject]) {
+        // TODO: implement
+        self.info = info["description"] as! String
+        self.title = info["title"] as! String
+        self.recurringAmount = info["recurringAmount"] as! Double
+        self.amountToRaise = info["amountToRaise"] as! Double
+        self.numberOfPayments = info["numberOfPayments"] as! Int
+        self.paymentsMadeEveryTimePeriod = info["paymentPlan"] as! String
+        self.usersID = [String]()
+    }
 	
 	init(
 	title: String,
 	info: String,
-	recurringAmount: Int,
-	amountToRaise: Int,
+	recurringAmount: Double,
+	amountToRaise: Double,
 	numberOfPayments: Int,
 	paymentsMadeEveryTimePeriod: String,
 	usersID: [String] ){

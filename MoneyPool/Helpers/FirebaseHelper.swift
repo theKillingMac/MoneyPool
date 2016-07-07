@@ -15,8 +15,8 @@ protocol FirebaseConvertible {
 enum RefPoint: String {
     case Users = "users"
     case Pools = "pools"
-    case Invitation = "invitaion"
-	case Friends = "friends"
+    case Invitations = "invitations"
+    case Friends = "friends"
 }
 
 class FirebaseHelper {
@@ -62,9 +62,11 @@ class FirebaseHelper {
         switch refPoint {
         case .Users:
             saveToUsers(data)
+        case .Friends:
+            saveToFriends(data)
         case .Pools:
             saveToPools(data)
-        case .Invitation:
+        case .Invitations:
             saveToInvitaion(data)
 		case .Friends:
 			saveToFriends(data)
@@ -79,6 +81,7 @@ class FirebaseHelper {
         }
     }
     
+    
     private func saveToPools(data: FirebaseConvertible) {
         
         FirebaseHelper._rootRef.child(RefPoint.Pools.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
@@ -89,7 +92,7 @@ class FirebaseHelper {
     }
     
     private func saveToInvitaion(data: FirebaseConvertible) {
-        FirebaseHelper._rootRef.child(RefPoint.Invitation.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
+        FirebaseHelper._rootRef.child(RefPoint.Invitations.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
             if error != nil {
                 ErrorHandling.defaultErrorHandler(error!)
             }
@@ -97,7 +100,7 @@ class FirebaseHelper {
     }
 	
 	private func saveToFriends(data: FirebaseConvertible) {
-		FirebaseHelper._rootRef.child(RefPoint.Invitation.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
+		FirebaseHelper._rootRef.child(RefPoint.Invitations.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
 			if error != nil {
 				ErrorHandling.defaultErrorHandler(error!)
 			}
