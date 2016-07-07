@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = dataSource
+        tableView.delegate = self
         
 //        firebaseHelper.createUserWithEmail("test2@hello.com", andPassword: "123456")
         firebaseHelper.loginWithEmail("test2@hello.com", andPassword: "123456")
@@ -49,8 +50,10 @@ class MainViewController: UIViewController {
     }
 }
 
-
-
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    // TODO:
+}
 
 
 
