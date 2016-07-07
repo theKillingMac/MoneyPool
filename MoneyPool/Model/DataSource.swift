@@ -133,7 +133,7 @@ extension DataSource: UITableViewDataSource {
 //            return cell
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
-            cell.configure(cellData)
+//            cell.configure(cellData)
             return cell
 //        case .PoolInvitationFriendListTableViewCell:
 //            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
