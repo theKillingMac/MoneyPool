@@ -39,6 +39,8 @@ class InviteFriendsListViewController: UIViewController {
 		}
 	}
 	
+	//var friendsOfCurrentUser = [User]()
+	
 	let friendsImages: [UIImage] = []
 	var invitedFriends = [String]()
 	

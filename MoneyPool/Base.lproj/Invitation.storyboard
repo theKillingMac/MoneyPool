@@ -149,10 +149,10 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZMe-l9-2v2">
-                                <rect key="frame" x="0.0" y="263" width="600" height="261"/>
+                                <rect key="frame" x="0.0" y="299" width="600" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CK-r2-qMe" id="7mv-s2-tSD">
@@ -174,7 +174,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3P-9t-lL9">
                                                     <rect key="frame" x="63" y="8" width="393" height="43"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -315,23 +315,37 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends in this Pool: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnz-R0-FIm">
+                                <rect key="frame" x="20" y="275" width="180" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3Fe-Uj-Udp" firstAttribute="centerX" secondItem="jLt-Wy-Iyj" secondAttribute="centerX" id="26n-IC-C8t"/>
                             <constraint firstItem="2dH-x1-2qD" firstAttribute="top" secondItem="ZMe-l9-2v2" secondAttribute="bottom" constant="20" id="3ti-Ce-oDz"/>
                             <constraint firstItem="ZMe-l9-2v2" firstAttribute="top" secondItem="3Fe-Uj-Udp" secondAttribute="bottom" constant="8" id="6gm-Pu-7Uq"/>
+                            <constraint firstItem="Lnz-R0-FIm" firstAttribute="top" secondItem="3Fe-Uj-Udp" secondAttribute="bottom" constant="20" id="7KW-sJ-0Wv"/>
                             <constraint firstItem="Nn5-kD-7pw" firstAttribute="trailing" secondItem="jLt-Wy-Iyj" secondAttribute="trailingMargin" id="Awz-df-15C"/>
                             <constraint firstItem="Nn5-kD-7pw" firstAttribute="top" secondItem="H7l-Vk-NED" secondAttribute="bottom" constant="15" id="OZV-jQ-526"/>
                             <constraint firstItem="ZMe-l9-2v2" firstAttribute="leading" secondItem="jLt-Wy-Iyj" secondAttribute="leading" id="OoN-Dj-5Wd"/>
                             <constraint firstAttribute="trailing" secondItem="ZMe-l9-2v2" secondAttribute="trailing" id="UvT-am-olm"/>
                             <constraint firstItem="vZg-Ox-7tP" firstAttribute="top" secondItem="2dH-x1-2qD" secondAttribute="bottom" constant="20" id="b5K-9O-QzO"/>
+                            <constraint firstItem="Lnz-R0-FIm" firstAttribute="leading" secondItem="jLt-Wy-Iyj" secondAttribute="leadingMargin" id="c9q-JZ-zDd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3Fe-Uj-Udp" secondAttribute="trailing" id="jG7-LI-nuN"/>
                             <constraint firstItem="Nn5-kD-7pw" firstAttribute="leading" secondItem="jLt-Wy-Iyj" secondAttribute="leadingMargin" id="mSM-kO-AT1"/>
                             <constraint firstItem="3Fe-Uj-Udp" firstAttribute="leading" secondItem="jLt-Wy-Iyj" secondAttribute="leadingMargin" id="oM3-M3-Etd"/>
                             <constraint firstItem="2dH-x1-2qD" firstAttribute="centerX" secondItem="jLt-Wy-Iyj" secondAttribute="centerX" id="t6O-9k-fHn"/>
+                            <constraint firstItem="ZMe-l9-2v2" firstAttribute="top" secondItem="Lnz-R0-FIm" secondAttribute="bottom" id="vfG-Mm-9nc"/>
                             <constraint firstItem="3Fe-Uj-Udp" firstAttribute="top" secondItem="Nn5-kD-7pw" secondAttribute="bottom" constant="8" id="wQb-Dx-kjP"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6gm-Pu-7Uq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="amountToRaise" destination="wn4-Ig-C9m" id="eUK-ge-Umd"/>

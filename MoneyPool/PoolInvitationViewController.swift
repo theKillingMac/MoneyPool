@@ -23,12 +23,27 @@ class PoolInvitationViewController: UIViewController {
 		
 	}
 	
+	var usersID: [String] = ["user-123456"]{
+		didSet{
+			//will need to update the users array
+			tableView.reloadData()
+		}
+	}
+	
+	//var usersOfPool = [User]()
+	
 	let currentUser:String = "user-123456"
 	
 	//The invitation should be set during the segue to this controller
 	var invitation: Invitation!{
 		didSet{
-			
+			poolTitle = invitation.title
+			poolInfo.text = invitation.info
+			amountToRaise.text = "\(invitation.amountToRaise)"
+			numberOfPayments.text = "\(invitation.numberOfPayments)"
+			recurringAmount.text = "\(invitation.recurringAmount)"
+			paymentsMadeEveryTimePeriod.text = "\(invitation.paymentsMadeEveryTimePeriod)"
+			usersID = invitation.usersID
 		}
 	}
 	
@@ -41,26 +56,41 @@ class PoolInvitationViewController: UIViewController {
     }
 	
 	
+	
+	//MARK Accept/Decline Button
 	@IBAction func acceptOrDeclineButtonPushed(sender: UIButton) {
+		//find current user in the invitation on firebase
+		//change its status to...
+		
 		if sender.titleLabel?.text == "ACCEPT"{
-			
+			//status = accept
 			
 			
 		} else if sender.titleLabel?.text == "DECLINE"{
-			
+			//status = decline
 			
 		}
 		
+		//segue home
 	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	
 
 }
+
+
+//MARK: Table View
+extension PoolInvitationViewController: UITableViewDataSource, UITableViewDelegate{
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return usersID.count
+	}
+	
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
+		cell.friendNameLabel.text = usersID[indexPath.row] //actually be from the usersOfPool array
+		//all data will need to be set from usersOfPool array
+		cell.statusInPool.text = "Pending" //this is only temporary as stated above...
+		
+		return cell
+	}
+}
+
