@@ -12,7 +12,7 @@ import Firebase
 class MainViewController: UIViewController {
     
     // Data Source Handler
-    let dataSource = DataSource()
+    let dataSource = DataSource(dataSourceType: DataSourceType.MainTableView)
     
     // Lazy instantiation of firebase ref
     var firebaseHelper: FirebaseHelper = {
