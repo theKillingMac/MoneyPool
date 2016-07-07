@@ -34,6 +34,8 @@
 		B20B66A31D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */; };
 		B2F8572C1D2DB1960008FF44 /* PoolInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */; };
 		B2F857321D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */; };
+		B2F857361D2ED6460008FF44 /* addNewFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857351D2ED6460008FF44 /* addNewFriendsViewController.swift */; };
+		B2F857381D2EF0860008FF44 /* addNewFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857371D2EF0860008FF44 /* addNewFriendsTableViewCell.swift */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,8 @@
 		B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendListTableViewCell.swift; sourceTree = "<group>"; };
 		B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationViewController.swift; sourceTree = "<group>"; };
 		B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationFriendListsTableViewCell.swift; sourceTree = "<group>"; };
+		B2F857351D2ED6460008FF44 /* addNewFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addNewFriendsViewController.swift; sourceTree = "<group>"; };
+		B2F857371D2EF0860008FF44 /* addNewFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addNewFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyPoolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 				040490671D2DB123005F654E /* PoolTableViewCell.swift */,
 				040490691D2DB13C005F654E /* InvitaionTableViewCell.swift */,
 				B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */,
+				B2F857371D2EF0860008FF44 /* addNewFriendsTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				04257CAA1D2C698B00F34956 /* MainViewController.swift */,
 				61D434541D2D949C0093A831 /* CreatePoolViewController.swift */,
 				B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */,
+				B2F857351D2ED6460008FF44 /* addNewFriendsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -536,12 +542,14 @@
 				044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */,
 				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,
 				B2F857321D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift in Sources */,
+				B2F857361D2ED6460008FF44 /* addNewFriendsViewController.swift in Sources */,
 				040490681D2DB123005F654E /* PoolTableViewCell.swift in Sources */,
 				B20B66A31D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift in Sources */,
 				044B393D1D2CF8250058E3EB /* User.swift in Sources */,
 				61D434551D2D949C0093A831 /* CreatePoolViewController.swift in Sources */,
 				044B392F1D2C903B0058E3EB /* Pool.swift in Sources */,
 				B2F8572C1D2DB1960008FF44 /* PoolInvitationViewController.swift in Sources */,
+				B2F857381D2EF0860008FF44 /* addNewFriendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

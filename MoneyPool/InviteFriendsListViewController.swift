@@ -27,55 +27,70 @@ class InviteFriendsListViewController: UIViewController {
 	//Information given when segued to this view controller
 	var incompleteInvitation: partiallyMadeInvitation!
 	
-	var allFriends: [String] = [] {
-		didSet{
-			displayFriends = allFriends
-		}
-	}
+//	var allFriends: [String] = [] {
+//		didSet{
+//			displayFriends = allFriends
+//		}
+//	}
 	
-	var displayFriends: [String] = [] {
-		didSet{
-			tableView.reloadData()
-		}
-	}
+//	var displayFriends: [String] = [] {
+//		didSet{
+//			tableView.reloadData()
+//		}
+//	}
 	
-	//var friendsOfCurrentUser = [User]()
+	var allUsersInFirebase = [User]()
+	var friendsOfCurrentUser = [User]()
 	
 	let friendsImages: [UIImage] = []
 	var invitedFriends = [String]()
 	
-	var firebase = FirebaseHelper()
+	//var firebase = FirebaseHelper()
 	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
+	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.dataSource = dataSource
 		tableView.delegate = self
-		displayFriends = allFriends
+		//displayFriends = allFriends
 		
-		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
-			self.updateTable(result)
-		}
-		
+//		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
+//			let allFriends = result.value as! [String: AnyObject]
+//			self.updateTable(allFriends)
+//		}
+//		
+//		firebase.addSingleObserverForRefPoint(RefPoint.Users) { (result: FIRDataSnapshot) in
+//			let allUsers = result.value as! [String: AnyObject]
+//			for user in allUsers {
+//				
+//				self.allUsersInFirebase.append(User(info: user as! [String: AnyObject]))
+//			}
+//		}
+
         // Do any additional setup after loading the view.
     }
 
 	
-	func updateTable(data: FIRDataSnapshot){
-		let newData = data.value as! [String: AnyObject]
-		
-		if let friendsArrayOfCurrentUser = newData[currentUser] { //the array contains dictionairies
-			//print(friendsArrayOfCurrentUser)
-			
-			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
-				//friendData is a tuple of the userID and the boolean value(always true)
-				allFriends.append(friendData.0)
-			}
-		}
-		
+//	func updateTable(friendsData: [String: AnyObject]){
+//		
+//		if let friendsArrayOfCurrentUser = friendsData[currentUser] { //the array contains dictionairies
+//			//print(friendsArrayOfCurrentUser)
+//			
+//			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
+//				//friendData is a tuple of the userID and the boolean value(always true)
+//				allFriends.append(friendData.0)
+//			}
+//
+//		}
+//		
+//	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		dataSource.addOFirebaseObserverForRefPoint(.Friends)
 	}
-	
-	
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
 		//make an invitation and save to Firebase
@@ -96,23 +111,25 @@ class InviteFriendsListViewController: UIViewController {
 
 }
 
-//MARK: Table View
-extension InviteFriendsListViewController: UITableViewDataSource, UITableViewDelegate{
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return displayFriends.count
-	}
-	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
-		cell.friendNameLabel.text = displayFriends[indexPath.row]
-		//need to set the image of the friend
-		
-		cell.delegate = self
-		return cell
-	}
-	
-	
+////MARK: Table View
+extension InviteFriendsListViewController: UITableViewDelegate{
+
 }
+//	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//		return displayFriends.count
+//	}
+//	
+//	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
+//		cell.friendNameLabel.text = displayFriends[indexPath.row]
+//		//need to set the image of the friend
+//		
+//		cell.delegate = self
+//		return cell
+//	}
+//	
+//	
+//}
 
 //MARK: Search Bar
 extension InviteFriendsListViewController: UISearchBarDelegate{
@@ -126,11 +143,16 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 		searchBar.resignFirstResponder()
 		searchBar.text = ""
 		searchBar.setShowsCancelButton(false, animated: true)
-		displayFriends = allFriends
+		//displayFriends = allFriends
 	}
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		//displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+	}
+	
+	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		self.view.endEditing(true)
+		searchBar.showsCancelButton = true
 	}
 	
 }
@@ -144,5 +166,12 @@ extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
 		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
 	}
 
+}
+
+extension InviteFriendsListViewController: DataSourceDelegate{
+	func updateData() {
+		print("I AM UPDATING THE TABLE...")
+		tableView.reloadData()
+	}
 }
 
