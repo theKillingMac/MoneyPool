@@ -63,6 +63,25 @@ class DataSource: NSObject {
         }
     }
     
+    /// Fetch firebase from refPoint
+    /// - refPoint: reference pinter in firebase database
+    func addOFirebaseObserverForRefPoint(refPoint: RefPoint) {
+        firebaseHelper.addValueObserverForRefPoint(refPoint) { (snapShot: FIRDataSnapshot) in
+            guard let poolsSnap = snapShot.value as? [String:[String:AnyObject]] else {
+                ErrorHandling.customErrorMessage("Error fetching data from firebase")
+                return }
+            // clear data before update
+            self.moneyPoolData.removeAll(keepCapacity: true)
+            for (_, value) in poolsSnap {
+                let pool = Pool(info: value)
+                self.moneyPoolData.append(pool)
+                print(pool)
+            }
+            self.delegate?.updateData()
+            print(self.moneyPoolData.count, #function)
+        }
+    }
+    
     /// Save to firebase database any type
     /// that conforms to MoneyPool protocol
     func saveToDatabase(file: MoneyPoolType) {
@@ -72,7 +91,7 @@ class DataSource: NSObject {
         case let file as Pool:
             firebaseHelper.saveData(file, toRefPoint: RefPoint.Pools)
         case let file as Invitation:
-            firebaseHelper.saveData(file, toRefPoint: RefPoint.Invitation)
+            firebaseHelper.saveData(file, toRefPoint: RefPoint.Invitations)
         default:
             ErrorHandling.customErrorMessage("Error Saving file to firebase")
             break
@@ -92,6 +111,7 @@ extension DataSource: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellData = moneyPoolData[indexPath.row]
+        
         switch dataSource {
         case .MainTableView:
             if cellData is Pool {
