@@ -10,16 +10,20 @@ import UIKit
 
 class CreatePoolViewController: UIViewController {
     
+    private var invitation: Invitation?
     
-    @IBOutlet weak var eventName: UITextField!
+    @IBOutlet weak var eventNameTextField: UITextField!
     
-    @IBOutlet weak var amountGoal: UITextField!
+    @IBOutlet weak var amountGoalTextField: UITextField!
     
+    @IBOutlet weak var poolDescriptionTextField: UITextField!
     
     
     @IBOutlet weak var paymentSelection: UIPickerView!
     
     @IBAction func inviteFriendsTapped(sender: AnyObject) {
+        
+        // Invitation
     }
     
     let pickerData = ["daily","weekly","bi-weekly","monthly","bi-monthly", "custom"]
@@ -28,22 +32,34 @@ class CreatePoolViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-    // Segue to invite friends
+
     // Prepare for Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            
-            if identifier == "inviteFriends" {
-                print("Invite Cell Tapped")
                 
-                let displayInviteViewController = segue.destinationViewController as! InviteFriendsListViewController
+        guard let viewController = segue.destinationViewController as? InviteFriendsListViewController else {
+            
+            // handle the error her
+            return
+        }
+        if segue.identifier == "inviteFriends" {
+            if let invitation = invitation {
+//                let newInvitation = Pool()
+//                newInvitation.eventName = eventNameTextField.text ?? ""
+//                newInvItation.amountGoal = Double(amountGoalTextField.text) ?? 0.00
+//                newInvitation.poolDescription = poolDescriptionTextField.text ?? ""
+                
             } else {
-                print("error")
+                
+//                let invitation = Pool()
+//                invitation.eventName = eventNameTextField.text ?? ""
+//                invitation.amountGoal = Double(amountGoalTextField.text) ?? 0.00
+//                invitation.poolDescription = poolDescriptionTextField.text ?? ""
                 
             }
+            
         }
     }
+    
 }
 
 

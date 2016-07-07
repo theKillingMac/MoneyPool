@@ -123,9 +123,10 @@
                     <navigationItem key="navigationItem" title="Create Pool Request" id="kfX-id-6zN"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="amountGoal" destination="iDZ-3P-nO0" id="oHd-x0-zph"/>
-                        <outlet property="eventName" destination="wnA-B5-Xlg" id="UKB-Y3-mv7"/>
+                        <outlet property="amountGoalTextField" destination="iDZ-3P-nO0" id="03k-MN-uZ6"/>
+                        <outlet property="eventNameTextField" destination="wnA-B5-Xlg" id="v5i-je-hAF"/>
                         <outlet property="paymentSelection" destination="Dmd-Qm-Jin" id="OYg-w0-TH5"/>
+                        <outlet property="poolDescriptionTextField" destination="K6q-lt-D14" id="unR-PD-KeQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxr-zi-hHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
