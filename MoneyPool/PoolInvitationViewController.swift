@@ -86,7 +86,7 @@ extension PoolInvitationViewController: UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
+		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
 		cell.friendNameLabel.text = usersID[indexPath.row] //actually be from the usersOfPool array
 		//all data will need to be set from usersOfPool array
 		cell.statusInPool.text = "Pending" //this is only temporary as stated above...

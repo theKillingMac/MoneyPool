@@ -152,7 +152,7 @@
                                 <rect key="frame" x="0.0" y="299" width="600" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListsTableViewCell" customModule="MoneyPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CK-r2-qMe" id="7mv-s2-tSD">
@@ -199,9 +199,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="friendImageView" destination="ttW-qN-dsk" id="pcz-CQ-7Ye"/>
-                                            <outlet property="friendNameLabel" destination="i3P-9t-lL9" id="96Z-nI-Xaw"/>
-                                            <outlet property="statusInPool" destination="Gro-Bu-ijc" id="cAC-fw-82o"/>
+                                            <outlet property="friendImageView" destination="ttW-qN-dsk" id="Zfx-9w-Whr"/>
+                                            <outlet property="friendNameLabel" destination="i3P-9t-lL9" id="JcF-z9-OI6"/>
+                                            <outlet property="statusInPool" destination="Gro-Bu-ijc" id="E2a-Fe-8E5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
