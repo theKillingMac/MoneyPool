@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  MoneyPool
 //
 //  Created by Jorge Bastos on 7/5/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // Data Source Handler
     let dataSource = DataSource()
@@ -19,10 +19,15 @@ class ViewController: UIViewController {
         return FirebaseHelper()
     }()
     
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     let userInfo = ["firstName": "test", "lastName": "user2", "nickname": "test2", "email": "test2@hello.com", "imgUrl": "htt://www.imageToFirebase.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = dataSource
         
 //        firebaseHelper.createUserWithEmail("test2@hello.com", andPassword: "123456")
         firebaseHelper.loginWithEmail("test2@hello.com", andPassword: "123456")
@@ -39,6 +44,7 @@ class ViewController: UIViewController {
         // firebase observer for changes
         firebaseHelper.addValueObserverForRefPoint(RefPoint.Users) { (usersSnapshot: FIRDataSnapshot) in
             print("Printing user data from firebase \(usersSnapshot)")
+            
         }
     }
 }

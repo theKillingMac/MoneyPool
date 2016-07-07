@@ -35,6 +35,12 @@ extension DataSource: UITableViewDataSource {
         // get data from moneyPoolData array
         let cellData = moneyPoolData[indexPath.row]
         
+        let cell = tableView.dequeueReusableCellWithIdentifier("PoolTableViewCell", forIndexPath: indexPath) as! InvitaionTableViewCell
+        cell.titleLabel.text = "iPhone birthday gift invite"
+        cell.accepted.text = "5"
+        cell.declinedLabel.text = "2"
+        cell.pendingLabel.text = "8"
+        
         // check for the data type
         if cellData is PoolTableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("PoolTableViewCell", forIndexPath: indexPath) as! PoolTableViewCell
