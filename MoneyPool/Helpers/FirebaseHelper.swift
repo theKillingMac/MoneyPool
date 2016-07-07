@@ -16,6 +16,7 @@ enum RefPoint: String {
     case Users = "users"
     case Pools = "pools"
     case Invitation = "invitaion"
+	case Friends = "friends"
 }
 
 class FirebaseHelper {
@@ -65,6 +66,8 @@ class FirebaseHelper {
             saveToPools(data)
         case .Invitation:
             saveToInvitaion(data)
+		case .Friends:
+			saveToFriends(data)
         }
     }
     
@@ -92,7 +95,15 @@ class FirebaseHelper {
             }
         }
     }
-    
+	
+	private func saveToFriends(data: FirebaseConvertible) {
+		FirebaseHelper._rootRef.child(RefPoint.Invitation.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
+			if error != nil {
+				ErrorHandling.defaultErrorHandler(error!)
+			}
+		}
+	}
+	
     //MARK: - Firebase observers
     /// add a continous observer for the values
     func addValueObserverForRefPoint(refPoint: RefPoint, completion: (FIRDataSnapshot) -> Void) {

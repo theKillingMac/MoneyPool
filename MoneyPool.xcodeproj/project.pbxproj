@@ -34,6 +34,7 @@
 		B20B66A21D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B66A01D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift */; };
 		B20B66A31D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */; };
 		B2F8572C1D2DB1960008FF44 /* PoolInvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */; };
+		B2F857321D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +95,7 @@
 		B20B66A01D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsListViewController.swift; sourceTree = "<group>"; };
 		B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendListTableViewCell.swift; sourceTree = "<group>"; };
 		B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationViewController.swift; sourceTree = "<group>"; };
-		B2F8572D1D2DBBA00008FF44 /* PoolInvitationFriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationFriendListTableViewCell.swift; sourceTree = "<group>"; };
+		B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationFriendListsTableViewCell.swift; sourceTree = "<group>"; };
 		C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyPoolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,8 +130,10 @@
 		0404906B1D2DB8F6005F654E /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */,
 				040490671D2DB123005F654E /* PoolTableViewCell.swift */,
 				040490691D2DB13C005F654E /* InvitaionTableViewCell.swift */,
+				B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -196,8 +199,6 @@
 				04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */,
 				04E182631D2DA4BC00FF8D7B /* Pool.storyboard */,
 				04E182601D2DA48D00FF8D7B /* Invitation.storyboard */,
-				B20B66A11D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift */,
-				B2F8572D1D2DBBA00008FF44 /* PoolInvitationFriendListTableViewCell.swift */,
 				04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */,
 				0404906B1D2DB8F6005F654E /* TableViewCell */,
 			);
@@ -538,6 +539,7 @@
 				044B39331D2CAE770058E3EB /* Invitation.swift in Sources */,
 				044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */,
 				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,
+				B2F857321D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift in Sources */,
 				040490681D2DB123005F654E /* PoolTableViewCell.swift in Sources */,
 				B20B66A31D2D9D6B00BFF4A2 /* InviteFriendListTableViewCell.swift in Sources */,
 				044B393D1D2CF8250058E3EB /* User.swift in Sources */,
