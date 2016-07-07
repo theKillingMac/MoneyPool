@@ -33,5 +33,7 @@ struct ErrorHandling {
         // get reference for the topmost view controller
         let viewController = UIApplication.sharedApplication().windows[0].window?.rootViewController
         viewController?.presentViewController(alert, animated: true, completion: nil)
+        
+        print(message)
     }
 }

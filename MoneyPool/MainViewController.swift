@@ -40,8 +40,9 @@ class MainViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-//        dataSource.addOFirebaseObserver()
-        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Pools)
+        
+//        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Pools)
+        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Friends)
     }
 }
 

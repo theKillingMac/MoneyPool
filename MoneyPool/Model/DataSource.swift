@@ -46,6 +46,7 @@ class DataSource: NSObject {
     }
     
     // MARK: - Firebase Observers API
+    /// Depricated use addOFirebaseObserverForRefPoint(refPoint: RefPoint) instead
     func addOFirebaseObserver() {
         firebaseHelper.addValueObserverForRefPoint(RefPoint.Pools) { (snapShot: FIRDataSnapshot) in
             guard let poolsSnap = snapShot.value as? [String:[String:AnyObject]] else {
@@ -70,6 +71,7 @@ class DataSource: NSObject {
             guard let poolsSnap = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
+            
             // clear data before update
             self.moneyPoolData.removeAll(keepCapacity: true)
             for (_, value) in poolsSnap {
@@ -123,17 +125,8 @@ extension DataSource: UITableViewDataSource {
                 cell.configure(cellData)
                 return cell
             }
-//        case .PoolTableViewCell:
-//            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolTableViewCell
-//            cell.configure(cellData)
-//            return cell
-//        case .InvitaionTableViewCell:
-//            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InvitaionTableViewCell
-//            cell.configure(cellData)
-//            return cell
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
-//            cell.configure(cellData)
             return cell
 //        case .PoolInvitationFriendListTableViewCell:
 //            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
