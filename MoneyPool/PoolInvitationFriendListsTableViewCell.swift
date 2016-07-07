@@ -10,9 +10,9 @@ import UIKit
 
 
 
-class PoolInvitationFriendListTableViewCell: UITableViewCell {
+class PoolInvitationFriendListsTableViewCell: UITableViewCell {
 
-	
+	//3 var
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
 	@IBOutlet weak var statusInPool: UILabel!
