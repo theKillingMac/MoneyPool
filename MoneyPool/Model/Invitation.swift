@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Invitation: MoneyPoolType {
+struct Invitation: MoneyPoolType, FirebaseConvertible {
 	
 	let info: String
 	let title: String

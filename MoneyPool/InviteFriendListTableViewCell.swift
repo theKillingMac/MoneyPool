@@ -15,10 +15,25 @@ protocol InviteFriendTableViewCellDelegate: class{
 
 class InviteFriendListTableViewCell: UITableViewCell {
 
+	private var user: User? {
+		didSet{
+			if let user = user{
+				friendNameLabel.text = (user.firstName) + " " + (user.lastName)
+				friendImageView.image = UIImage(data: (NSURL(string: user.imgUrl)?.dataRepresentation)!)
+			}
+			
+		}
+	}
 	
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
 	@IBOutlet weak var inviteFriendButton: UIButton!
+	
+	
+	func configure(cell: MoneyPoolType){
+		guard let cell = cell as? User else {return}
+		self.user = cell
+	}
 	
 	var invited = false
 	weak var delegate: InviteFriendTableViewCellDelegate?

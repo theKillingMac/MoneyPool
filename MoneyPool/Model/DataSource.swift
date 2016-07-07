@@ -68,20 +68,24 @@ class DataSource: NSObject {
     /// - refPoint: reference pinter in firebase database
     func addOFirebaseObserverForRefPoint(refPoint: RefPoint) {
         firebaseHelper.addValueObserverForRefPoint(refPoint) { (snapShot: FIRDataSnapshot) in
-            guard let poolsSnap = snapShot.value as? [String:[String:AnyObject]] else {
+            guard let snaps = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
-            
-            // clear data before update
-            self.moneyPoolData.removeAll(keepCapacity: true)
-            for (_, value) in poolsSnap {
-                let pool = Pool(info: value)
-                self.moneyPoolData.append(pool)
-                print(pool)
-            }
-            self.delegate?.updateData()
-            print(self.moneyPoolData.count, #function)
+            self.generateDataFromFirebase(snaps, fordataType: refPoint)
+         }
+    }
+    
+ 
+    private func generateDataFromFirebase(snaps: [String:[String:AnyObject]], fordataType dataType: RefPoint) {
+        // clear data before update
+        self.moneyPoolData.removeAll(keepCapacity: true)
+        for (_, value) in snaps {
+            let pool = Pool(info: value)
+            self.moneyPoolData.append(pool)
+            print(pool)
         }
+        self.delegate?.updateData()
+        print(self.moneyPoolData.count, #function)
     }
     
     /// Save to firebase database any type
@@ -127,6 +131,7 @@ extension DataSource: UITableViewDataSource {
             }
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
+            cell.configure(cellData)
             return cell
 //        case .PoolInvitationFriendListTableViewCell:
 //            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
