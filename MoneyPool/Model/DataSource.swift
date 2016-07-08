@@ -71,18 +71,33 @@ class DataSource: NSObject {
             guard let snaps = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
-            self.generateDataFromFirebase(snaps, fordataType: refPoint)
+            self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
          }
     }
     
- 
-    private func generateDataFromFirebase(snaps: [String:[String:AnyObject]], fordataType dataType: RefPoint) {
+    private func generateDataFromFirebase(snaps: [String:[String:AnyObject]], forRefPoint refPoint: RefPoint) {
         // clear data before update
         self.moneyPoolData.removeAll(keepCapacity: true)
-        for (_, value) in snaps {
-            let pool = Pool(info: value)
-            self.moneyPoolData.append(pool)
-            print(pool)
+        for (_, snap) in snaps {
+            
+            switch refPoint {
+            case .Friends:
+                let user = User(info: snap)
+                self.moneyPoolData.append(user)
+                print(user)
+            case .Users:
+                let user = User(info: snap)
+                self.moneyPoolData.append(user)
+                print(user)
+            case .Invitations:
+                let invitation = Invitation(info: snap)
+                self.moneyPoolData.append(invitation)
+                print(invitation)
+            case .Pools:
+                let pool = Pool(info: snap)
+                self.moneyPoolData.append(pool)
+                print(pool)
+            }
         }
         self.delegate?.updateData()
         print(self.moneyPoolData.count, #function)
