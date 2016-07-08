@@ -29,11 +29,16 @@ class InviteFriendsListViewController: UIViewController {
 	
 	
 	
-	var allFriends: [String] = ["-KLzPHdO_rEwJuaxA1nr", "user-123456", "-KM-xqDASUJHTA7yWOYA"] {
-		didSet{
-			//displayFriends = allFriends
-		}
-	}
+//	var allFriends: [String] = ["-KLzPHdO_rEwJuaxA1nr", "user-123456", "-KM-xqDASUJHTA7yWOYA"] {
+//		didSet{
+//			//displayFriends = allFriends
+//		}
+//	}
+	
+	
+	
+	
+	
 	
 //	var displayFriends: [String] = [] {
 //		didSet{
@@ -45,12 +50,12 @@ class InviteFriendsListViewController: UIViewController {
 	var friendsOfCurrentUser = [User]()
 	
 	let friendsImages: [UIImage] = []
-	var invitedFriends = [String]()
+	var invitedFriends = [String: AnyObject]()
 	
 	//var firebase = FirebaseHelper()
 	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
-	//let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
+	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,17 +105,17 @@ class InviteFriendsListViewController: UIViewController {
 		let paymentPlan = PaymentPlan(amountToPay: incompleteInvitation.amountToPay,
 		                              numberOfPayments: incompleteInvitation.numberOfPayments,
 		                              periodOfPayments: incompleteInvitation.periodOfPayments)
+		let paymentPlanID = "paymentPlanID1"
+		
+		dataSource.saveToDatabase(paymentPlan)
 		
 		let invitation = Invitation(title: incompleteInvitation.title,
 		                            info: incompleteInvitation.info,
-		                            recurringAmount: incompleteInvitation.amountToPay,
 		                            amountToRaise: incompleteInvitation.amountToRaise,
-		                            numberOfPayments: incompleteInvitation.numberOfPayments,
-		                            periodOfPayments: incompleteInvitation.paymentsMadeEveryTimePeriod,
-		                            usersID: allFriends)
+		                            paymentPlanID: paymentPlanID,
+		                            usersID: ["USERID1": true])
 		
-		let firebase = FirebaseHelper()
-		firebase.saveData(invitation, toRefPoint: RefPoint.Invitations)
+		dataSource.saveToDatabase(invitation)
 	}
 
 }
@@ -163,11 +168,15 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 
 //MARK: Friend invitation
 extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
-	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String){
-		invitedFriends.append(invitedFriend)
+	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriendName: String){
+		
+		//GET THE USER AND STROE IT IN INVITED FRIENDS
+		//invitedFriends.append(invitedFriend)
 	}
-	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String){
-		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
+	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriendName: String){
+		
+		//GET THE USER AND REMOVE IT FROM INVITED FRIENDS
+		//invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
 	}
 
 }

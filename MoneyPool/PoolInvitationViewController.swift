@@ -37,13 +37,14 @@ class PoolInvitationViewController: UIViewController {
 	//The invitation should be set during the segue to this controller
 	var invitation: Invitation!{
 		didSet{
-			poolTitle = invitation.title
-			poolInfo.text = invitation.info
-			amountToRaise.text = "\(invitation.amountToRaise)"
-			numberOfPayments.text = "\(invitation.numberOfPayments)"
-			recurringAmount.text = "\(invitation.recurringAmount)"
-			paymentsMadeEveryTimePeriod.text = "\(invitation.paymentsMadeEveryTimePeriod)"
-			usersID = invitation.usersID
+			//NEED TO SET ALL THE PROPERTIES!!
+//			poolTitle = invitation.title
+//			poolInfo.text = invitation.info
+//			amountToRaise.text = "\(invitation.amountToRaise)"
+//			numberOfPayments.text = "\(invitation.numberOfPayments)"
+//			recurringAmount.text = "\(invitation.recurringAmount)"
+//			paymentsMadeEveryTimePeriod.text = "\(invitation.paymentsMadeEveryTimePeriod)"
+//			usersID = invitation.usersID
 		}
 	}
 	

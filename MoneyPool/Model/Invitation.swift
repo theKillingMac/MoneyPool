@@ -14,7 +14,7 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
 	let title: String
 	let amountToRaise: Double
 	let paymentPlanID: String
-	let usersID: [String]
+	let usersID: [String: AnyObject]
 	
 	
     init(info: [String : AnyObject]) {
@@ -24,7 +24,7 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
         self.amountToRaise = info["amountToRaise"] as! Double
 		self.paymentPlanID = info["paymentPlanID"] as! String
 		
-		self.usersID = [String]()
+		self.usersID = [String: AnyObject]()
 		
     }
 	
@@ -32,8 +32,8 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
 	title: String,
 	info: String,
 	amountToRaise: Double,
-	paymentPlanID: String
-	usersID: [String] ){
+	paymentPlanID: String,
+	usersID: [String: AnyObject] ){
 		
 		self.info = info
 		self.title = title
@@ -44,6 +44,13 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
 	}
     
     func converToFirebase() -> [String:AnyObject] {
-        return [String:AnyObject]()
+		var fireInvitation = [String: AnyObject]()
+		fireInvitation["title"] = self.title
+		fireInvitation["info"] = self.info
+		fireInvitation["amountToRaise"] = self.amountToRaise
+		fireInvitation["paymentPlanID"] = self.paymentPlanID
+		fireInvitation["usersID"] = self.usersID
+		
+        return fireInvitation
     }
 }
