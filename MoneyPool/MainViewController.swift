@@ -29,6 +29,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let currentUser = FIRAuth.auth()?.currentUser {
+            performSegueWithIdentifier("presentLoginViewController", sender: nil)
+        }
+        
         tableView.dataSource = dataSource
         tableView.delegate = self
         dataSource.delegate = self
