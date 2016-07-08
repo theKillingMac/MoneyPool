@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginTappedButton(sender: UIButton) {
+		print("doing...")
         if loginButton.titleLabel?.text == "LOGIN" {
             
             login(emailTextField.text!, password: passwordTextfield.text!)
@@ -60,10 +61,11 @@ class LoginViewController: UIViewController {
     }
     
     func createUser(email: String, password: String) {
+		print("authenticaing user...")
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { user, error in
             if error != nil {
-                
-            } else {
+				ErrorHandling.customErrorMessage("Error! Try Again")
+			} else {
                 print("User Created \(user?.uid)")
                 FirebaseHelper.rootRef.child("users/\(user!.uid)").setValue(["email": email])
                 self.login(email, password: password)

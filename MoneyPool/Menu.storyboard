@@ -107,13 +107,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxV-aE-Z1M">
-                                <rect key="frame" x="251" y="506" width="98" height="30"/>
-                                <state key="normal" title="Save Changes"/>
-                                <connections>
-                                    <action selector="saveChangesButtonPressed:" destination="1H7-Q4-ICw" eventType="touchUpInside" id="tOz-eu-Zue"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcF-Ky-ai9">
                                 <rect key="frame" x="20" y="20" width="60" height="30"/>
                                 <constraints>
@@ -130,18 +123,31 @@
                                     <action selector="closeButtonPressed:" destination="1H7-Q4-ICw" eventType="touchUpInside" id="EH1-b9-ncg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHm-tY-k3w">
+                                <rect key="frame" x="532" y="20" width="48" height="30"/>
+                                <state key="normal" title="log out"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxV-aE-Z1M">
+                                <rect key="frame" x="280" y="285" width="98" height="30"/>
+                                <state key="normal" title="Save Changes"/>
+                                <connections>
+                                    <action selector="saveChangesButtonPressed:" destination="1H7-Q4-ICw" eventType="touchUpInside" id="tOz-eu-Zue"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DcF-Ky-ai9" firstAttribute="leading" secondItem="efH-bv-6Ak" secondAttribute="leadingMargin" id="4GF-5o-4DQ"/>
-                            <constraint firstItem="VfI-nB-eIq" firstAttribute="top" secondItem="oxV-aE-Z1M" secondAttribute="bottom" constant="15" id="AOy-wU-dHW"/>
+                            <constraint firstItem="BHm-tY-k3w" firstAttribute="top" secondItem="Wa8-iQ-Eat" secondAttribute="bottom" id="D0R-d3-PeM"/>
                             <constraint firstItem="DcF-Ky-ai9" firstAttribute="top" secondItem="Wa8-iQ-Eat" secondAttribute="bottom" id="Nq3-fi-6bb"/>
                             <constraint firstItem="SPf-lu-GBL" firstAttribute="leading" secondItem="efH-bv-6Ak" secondAttribute="leadingMargin" id="OHc-06-Zi8"/>
                             <constraint firstItem="h2t-L8-xIM" firstAttribute="top" secondItem="SPf-lu-GBL" secondAttribute="bottom" constant="35" id="V63-qZ-hZH"/>
+                            <constraint firstItem="oxV-aE-Z1M" firstAttribute="top" secondItem="vHh-22-2M7" secondAttribute="bottom" constant="32" id="Yaa-yi-Q1h"/>
                             <constraint firstItem="dJw-wQ-Zmr" firstAttribute="top" secondItem="Wa8-iQ-Eat" secondAttribute="bottom" constant="8" id="cMq-C9-o2D"/>
-                            <constraint firstItem="oxV-aE-Z1M" firstAttribute="centerX" secondItem="efH-bv-6Ak" secondAttribute="centerX" id="cxI-2Z-yb4"/>
                             <constraint firstItem="dJw-wQ-Zmr" firstAttribute="centerX" secondItem="efH-bv-6Ak" secondAttribute="centerX" id="e3n-oY-7JA"/>
                             <constraint firstItem="h2t-L8-xIM" firstAttribute="leading" secondItem="efH-bv-6Ak" secondAttribute="leadingMargin" id="fwb-5Q-AmA"/>
+                            <constraint firstItem="BHm-tY-k3w" firstAttribute="trailing" secondItem="efH-bv-6Ak" secondAttribute="trailingMargin" id="krq-mJ-wGM"/>
+                            <constraint firstItem="oxV-aE-Z1M" firstAttribute="centerX" secondItem="efH-bv-6Ak" secondAttribute="centerX" id="qqJ-75-D4H"/>
                             <constraint firstItem="SPf-lu-GBL" firstAttribute="top" secondItem="dJw-wQ-Zmr" secondAttribute="bottom" constant="20" id="xys-gD-swh"/>
                         </constraints>
                     </view>
@@ -150,6 +156,7 @@
                         <outlet property="emailIDTextField" destination="vHh-22-2M7" id="uaD-Gi-ZJK"/>
                         <outlet property="firstNameTextField" destination="OQq-N0-pUf" id="UcE-8F-QFh"/>
                         <outlet property="lastNameTextField" destination="K5N-Rg-amH" id="TXN-iS-wQP"/>
+                        <outlet property="logOutButtonPressed" destination="BHm-tY-k3w" id="Wm4-X2-Yf6"/>
                         <outlet property="nicknameTextField" destination="GWx-67-lKL" id="l5R-QJ-zzn"/>
                     </connections>
                 </viewController>

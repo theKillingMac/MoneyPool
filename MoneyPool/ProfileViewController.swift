@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
 
 	var currentUser: User?
 	let firebase = FirebaseHelper()
+	var userKey: String!
 	
 	@IBOutlet weak var firstNameTextField: UITextField!
 	@IBOutlet weak var lastNameTextField: UITextField!
@@ -24,18 +25,23 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		
+	}
+	
+	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
 		
 		let user = (FIRAuth.auth()?.currentUser)
 		emailIDTextField.text = user?.email
 		
-		let userKey = user?.uid
+		userKey = user?.uid
 		print("userKEY: \(userKey)")
-		intiallyUpdateData(userKey!)
+		intiallyUpdateData(userKey)
+		
 		
 
-        // Do any additional setup after loading the view.
-    }
+	}
+	
+	
 	
 	func intiallyUpdateData(key: String){
 		firebase.addSingleObserverForRefPoint(RefPoint.Users) { (snapShot: FIRDataSnapshot) in
@@ -46,14 +52,17 @@ class ProfileViewController: UIViewController {
 			
 			if let userData = snaps[key]{
 				let user = User(info: userData as! [String: AnyObject])
+				self.currentUser = user
 				self.firstNameTextField.text = user.firstName
 				self.lastNameTextField.text = user.lastName
 				self.nicknameTextField.text = user.nickname
+				
 			}else{
 				print("USER NOT FOUND!!")
-				self.firstNameTextField.text = "ERROR"
-				self.lastNameTextField.text = "ERROR"
-				self.nicknameTextField.text = "ERROR"
+//				self.firstNameTextField.text = "No Name"
+//				self.lastNameTextField.text = "No Name"
+//				self.nicknameTextField.text = "No Name"
+				ErrorHandling.customErrorMessage("User not found!. Log in again")
 			}
 			
 			
@@ -70,8 +79,20 @@ class ProfileViewController: UIViewController {
 	}
 
 	@IBAction func saveChangesButtonPressed(sender: UIButton) {
+		self.currentUser?.firstName = self.firstNameTextField.text!
+		self.currentUser?.lastName = self.lastNameTextField.text!
+		self.currentUser?.nickname = self.nicknameTextField.text!
+		self.currentUser?.email = self.emailIDTextField.text!
+		
+		FirebaseHelper.rootRef.child("users/\(userKey)").setValue(currentUser!.converToFirebase())
+
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
+	
+	
+	@IBOutlet weak var logOutButtonPressed: UIButton!
+	
+	
     /*
     // MARK: - Navigation
 

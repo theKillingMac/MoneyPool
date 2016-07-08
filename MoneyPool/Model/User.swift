@@ -10,10 +10,10 @@ import Foundation
 
 struct User: MoneyPoolType, FirebaseConvertible {
     
-    let firstName: String
-    let lastName: String
-    let nickname: String
-    let email: String
+    var firstName: String
+    var lastName: String
+    var nickname: String
+    var email: String
     let imgUrl: String
     let userID: String
     
