@@ -14,7 +14,7 @@ enum DataSourceType: String {
     case MainTableView = "MainTableView"
 //    case PoolTableViewCell = "PoolTableViewCell"
 //    case InvitaionTableViewCell = "InvitaionTableViewCell"
-//    case PoolInvitationFriendListTableViewCell = "PoolInvitationFriendListTableViewCell"
+    case PoolInvitationFriendListTableViewCell = "PoolInvitationFriendListTableViewCell"
     case InviteFriendListTableViewCell = "InviteFriendListTableViewCell"
 }
 
@@ -190,10 +190,10 @@ extension DataSource: UITableViewDataSource {
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
             cell.configure(cellData)
             return cell
-//        case .PoolInvitationFriendListTableViewCell:
-//            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
-//            cell.configure(cellData)
-//            return cell
+        case .PoolInvitationFriendListTableViewCell:
+            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
+            cell.configure(cellData)
+            return cell
         }
     }
     
