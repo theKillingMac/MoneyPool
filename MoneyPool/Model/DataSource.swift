@@ -13,9 +13,10 @@ import Firebase
 enum DataSourceType: String {
     case MainTableView = "MainTableView"
 //    case PoolTableViewCell = "PoolTableViewCell"
-//    case InvitaionTableViewCell = "InvitaionTableViewCell"
-//    case PoolInvitationFriendListTableViewCell = "PoolInvitationFriendListTableViewCell"
+//	    case InvitaionTableViewCell = "InvitaionTableViewCell"
+    case PoolInvitationFriendListTableViewCell = "PoolInvitationFriendListTableViewCell"
     case InviteFriendListTableViewCell = "InviteFriendListTableViewCell"
+	case AddNewFriendsTableViewCell = "AddNewFriendsTableViewCell"
 }
 
 protocol DataSourceDelegate {
@@ -92,22 +93,16 @@ class DataSource: NSObject {
                 for (key, _) in value  {
                     let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
                     self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnaps: FIRDataSnapshot) in
-                        print(userSnaps)
+						guard let userInfo = userSnaps.value as? [String:AnyObject] else { return }
+						let user = User(userID: key, info: userInfo)
+						self.moneyPoolData.append(user)
+						self.delegate?.updateData()
+						print(user)
                     }
                 }
-//                // Get friendlis from each userID key
-//                for (keyF, _) in value {
-//                    let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
-//                    self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnap: FIRDataSnapshot) in
-//                        guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
-//                        let user = User(userID: keyF, info: userInfo)
-//                        self.moneyPoolData.append(user)
-//                        self.delegate?.updateData()
-//                        print(user)
-//                    }
-//                }
             }
         }
+		self.delegate?.updateData()
     }
     
     /// Fetch data from firebase
@@ -186,15 +181,23 @@ extension DataSource: UITableViewDataSource {
                 cell.configure(cellData)
                 return cell
             }
+			
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
             cell.configure(cellData)
             return cell
-//        case .PoolInvitationFriendListTableViewCell:
-//            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
-//            cell.configure(cellData)
-//            return cell
-        }
-    }
+			
+		case .PoolInvitationFriendListTableViewCell:
+			let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
+			cell.configure(cellData)
+			return cell
+
+		case .AddNewFriendsTableViewCell:
+			let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! AddNewFriendsTableViewCell
+			cell.configure(cellData)
+			return cell
+			
+		}
+	}
     
 }

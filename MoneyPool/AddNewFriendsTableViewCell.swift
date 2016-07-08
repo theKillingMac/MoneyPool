@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addNewFriendsTableViewCell: UITableViewCell {
+class AddNewFriendsTableViewCell: UITableViewCell {
 
 	var user: User? {
 		didSet {
@@ -23,7 +23,7 @@ class addNewFriendsTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
-	@IBOutlet weak var addRemoveFriendButton: UIButton!
+	@IBOutlet weak var addOrRemoveFriendLabel: UILabel!
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,15 +38,15 @@ class addNewFriendsTableViewCell: UITableViewCell {
 
 	
 	
-	@IBAction func addRemoveFriendButtonPushed(sender: UIButton) {
-		switch sender.titleLabel!.text! {
-		case "Add Friend":
-			sender.titleLabel?.text = "Remove Friend"
-		case "Remove Friend":
-			sender.titleLabel?.text = "Add Friend"
-		default: break
-		}
-	}
-
+//	@IBAction func addRemoveFriendButtonPushed(sender: UIButton) {
+//		switch sender.titleLabel!.text! {
+//		case "Add Friend":
+//			sender.titleLabel?.text = "Remove Friend"
+//		case "Remove Friend":
+//			sender.titleLabel?.text = "Add Friend"
+//		default: break
+//		}
+//	}
+//
 
 }

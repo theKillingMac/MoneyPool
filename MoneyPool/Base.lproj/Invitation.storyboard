@@ -8,7 +8,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Invite Friends to the Pool-->
+        <!--Click Friends to Invite to the Pool-->
         <scene sceneID="wvJ-tZ-s8m">
             <objects>
                 <viewController id="6Zh-W4-gx4" customClass="InviteFriendsListViewController" customModule="MoneyPool" customModuleProvider="target" sceneMemberID="viewController">
@@ -133,7 +133,7 @@
                             <constraint firstItem="Bzi-Cf-mck" firstAttribute="top" secondItem="l4l-8o-ii2" secondAttribute="bottom" constant="70" id="pl6-96-rzQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Invite Friends to the Pool" id="1nN-GP-Btt">
+                    <navigationItem key="navigationItem" title="Click Friends to Invite to the Pool" id="1nN-GP-Btt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yW1-UY-Wrx">
                             <connections>
                                 <segue destination="dGs-h4-CvT" kind="presentation" id="hxd-M2-c88"/>
@@ -162,7 +162,7 @@
         <!--Add more Friends!-->
         <scene sceneID="UB6-tZ-8lj">
             <objects>
-                <viewController id="dGs-h4-CvT" customClass="addNewFriendsViewController" customModule="MoneyPool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dGs-h4-CvT" customClass="AddNewFriendsViewController" customModule="MoneyPool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F9f-CV-MU8"/>
                         <viewControllerLayoutGuide type="bottom" id="sQa-xb-Rrv"/>
@@ -187,34 +187,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ps9-8Y-60t">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ps9-8Y-60t">
                                 <rect key="frame" x="0.0" y="114" width="600" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="fKL-Xu-7Nq" customClass="addNewFriendsTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddNewFriendsTableViewCell" rowHeight="70" id="fKL-Xu-7Nq" customClass="AddNewFriendsTableViewCell" customModule="MoneyPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fKL-Xu-7Nq" id="lvt-AB-9l0">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgA-wW-akk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgA-wW-akk">
                                                     <rect key="frame" x="72" y="23" width="345" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fte-am-Emw">
-                                                    <rect key="frame" x="442" y="20" width="150" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="OoT-vo-auY"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Add Friend"/>
-                                                    <connections>
-                                                        <action selector="addRemoveFriendButtonPushed:" destination="fKL-Xu-7Nq" eventType="touchUpInside" id="5S3-l2-0ve"/>
-                                                        <action selector="inviteFriendButtonPushed:" destination="fKL-Xu-7Nq" eventType="touchUpInside" id="NSY-jC-McT"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-fC-vH3">
                                                     <rect key="frame" x="8" y="7" width="55" height="55"/>
                                                     <constraints>
@@ -222,22 +211,24 @@
                                                         <constraint firstAttribute="width" constant="55" id="tXh-kb-zMf"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-Zh-TtT">
+                                                    <rect key="frame" x="430" y="17" width="162" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XgA-wW-akk" firstAttribute="centerY" secondItem="lvt-AB-9l0" secondAttribute="centerY" id="CTR-bJ-gyJ"/>
-                                                <constraint firstItem="fte-am-Emw" firstAttribute="centerY" secondItem="lvt-AB-9l0" secondAttribute="centerY" id="T2v-5K-uFJ"/>
                                                 <constraint firstItem="8Dg-fC-vH3" firstAttribute="leading" secondItem="lvt-AB-9l0" secondAttribute="leading" constant="8" id="VnY-dg-PhE"/>
                                                 <constraint firstItem="XgA-wW-akk" firstAttribute="leading" secondItem="8Dg-fC-vH3" secondAttribute="trailing" constant="9" id="ZPe-0T-5uz"/>
                                                 <constraint firstItem="8Dg-fC-vH3" firstAttribute="centerY" secondItem="lvt-AB-9l0" secondAttribute="centerY" id="dvv-jV-Imz"/>
-                                                <constraint firstItem="fte-am-Emw" firstAttribute="trailing" secondItem="lvt-AB-9l0" secondAttribute="trailingMargin" id="uDP-TT-fDg"/>
-                                                <constraint firstItem="fte-am-Emw" firstAttribute="leading" secondItem="XgA-wW-akk" secondAttribute="trailing" constant="25" id="vVK-qu-atN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addRemoveFriendButton" destination="fte-am-Emw" id="HQd-RC-snU"/>
-                                            <outlet property="friendImageView" destination="8Dg-fC-vH3" id="dYz-am-yA5"/>
-                                            <outlet property="friendNameLabel" destination="XgA-wW-akk" id="rJN-qc-OOn"/>
-                                            <outlet property="inviteFriendButton" destination="fte-am-Emw" id="p4W-L1-2Un"/>
+                                            <outlet property="addOrRemoveFriendLabel" destination="G9c-Zh-TtT" id="th1-ss-L3W"/>
+                                            <outlet property="friendImageView" destination="8Dg-fC-vH3" id="bYc-Wg-5Ot"/>
+                                            <outlet property="friendNameLabel" destination="XgA-wW-akk" id="qXM-9S-W4W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

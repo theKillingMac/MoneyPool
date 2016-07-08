@@ -8,26 +8,36 @@
 
 import UIKit
 
-class addNewFriendsViewController: UIViewController {
+class AddNewFriendsViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var searchBar: UISearchBar!
 	
 	var displayUsers = [User]()
 	
+	let dataSource = DataSource(dataSourceType: DataSourceType.AddNewFriendsTableViewCell)
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.dataSource = dataSource
+		tableView.delegate = self
+		dataSource.delegate = self
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
     }
 
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		dataSource.addOFirebaseObserverForRefPoint(RefPoint.Users)
+	}
+	
 	@IBAction func closeButtonPressed(sender: UIButton) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 }
 
-extension addNewFriendsViewController: UISearchBarDelegate{
+extension AddNewFriendsViewController: UISearchBarDelegate{
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
 		searchBar.showsCancelButton = true
 	}
@@ -48,4 +58,24 @@ extension addNewFriendsViewController: UISearchBarDelegate{
 	}
 	
 	
+}
+
+extension AddNewFriendsViewController: DataSourceDelegate{
+	func updateData() {
+		tableView.reloadData()
+	}
+}
+
+extension AddNewFriendsViewController: UITableViewDelegate{
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		print("GOT IT!!")
+		let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddNewFriendsTableViewCell
+		let user = dataSource.moneyPoolData[indexPath.row] as! User
+		
+		if cell.addOrRemoveFriendLabel.text == "Add Friend" {
+			cell.addOrRemoveFriendLabel.text = "Remove Friend"
+		}else{
+			cell.addOrRemoveFriendLabel.text = "Add Friend"
+		}
+	}
 }
