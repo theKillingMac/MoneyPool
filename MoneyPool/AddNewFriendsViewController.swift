@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AddNewFriendsViewController: UIViewController {
 
@@ -14,7 +15,7 @@ class AddNewFriendsViewController: UIViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
 	
 	var displayUsers = [User]()
-	
+	let currentUser = FIRAuth.auth()?.currentUser!
 	let dataSource = DataSource(dataSourceType: DataSourceType.AddNewFriendsTableViewCell)
 	
     override func viewDidLoad() {
@@ -74,6 +75,8 @@ extension AddNewFriendsViewController: UITableViewDelegate{
 		
 		if cell.addOrRemoveFriendLabel.text == "Add Friend" {
 			cell.addOrRemoveFriendLabel.text = "Remove Friend"
+			FirebaseHelper.rootRef.child("friends/\(currentUser!.uid)").setValue(["\(user.userID)": true])
+
 		}else{
 			cell.addOrRemoveFriendLabel.text = "Add Friend"
 		}

@@ -14,7 +14,7 @@ class AddNewFriendsTableViewCell: UITableViewCell {
 		didSet {
 			if let user = user {
 				friendNameLabel.text = user.firstName + " " + user.lastName
-				friendImageView.image = UIImage(data: (NSURL(string: user.imgUrl)?.dataRepresentation)!)
+				//friendImageView.image = UIImage(data: (NSURL(string: user.imgUrl)?.dataRepresentation)!)
 			}
 			
 		}

@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
             if error != nil {
 				ErrorHandling.customErrorMessage("Error! Try Again")
 			} else {
-                print("User Created \(user?.uid)")
+                print("User Created \(user!.uid)")
                 FirebaseHelper.rootRef.child("users/\(user!.uid)").setValue(["email": email])
                 self.login(email, password: password)
             }
