@@ -25,6 +25,8 @@
 		044B39391D2CD8820058E3EB /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B39381D2CD8820058E3EB /* DataSource.swift */; };
 		044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393A1D2CE11E0058E3EB /* ErrorHandling.swift */; };
 		044B393D1D2CF8250058E3EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B393C1D2CF8250058E3EB /* User.swift */; };
+		04A615741D2F6E19005365B6 /* ActivePoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A615731D2F6E19005365B6 /* ActivePoolViewController.swift */; };
+		04A615761D2F7268005365B6 /* ContributorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A615751D2F7268005365B6 /* ContributorsTableViewCell.swift */; };
 		04C9ACB91D2E1DDE006B5383 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */; };
 		04E182621D2DA48D00FF8D7B /* Invitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E182601D2DA48D00FF8D7B /* Invitation.storyboard */; };
 		04E182641D2DA4BC00FF8D7B /* Pool.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E182631D2DA4BC00FF8D7B /* Pool.storyboard */; };
@@ -83,6 +85,8 @@
 		044B39381D2CD8820058E3EB /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = Model/DataSource.swift; sourceTree = "<group>"; };
 		044B393A1D2CE11E0058E3EB /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
 		044B393C1D2CF8250058E3EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		04A615731D2F6E19005365B6 /* ActivePoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivePoolViewController.swift; sourceTree = "<group>"; };
+		04A615751D2F7268005365B6 /* ContributorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributorsTableViewCell.swift; sourceTree = "<group>"; };
 		04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		04E182611D2DA48D00FF8D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Invitation.storyboard; sourceTree = "<group>"; };
 		04E182631D2DA4BC00FF8D7B /* Pool.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pool.storyboard; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				040490691D2DB13C005F654E /* InvitaionTableViewCell.swift */,
 				B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */,
 				B2F857371D2EF0860008FF44 /* addNewFriendsTableViewCell.swift */,
+				04A615751D2F7268005365B6 /* ContributorsTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -200,8 +205,8 @@
 		04257CD61D2C77DA00F34956 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				04257CAC1D2C698B00F34956 /* Main.storyboard */,
 				04C9ACB81D2E1DDE006B5383 /* Menu.storyboard */,
+				04257CAC1D2C698B00F34956 /* Main.storyboard */,
 				04E182631D2DA4BC00FF8D7B /* Pool.storyboard */,
 				04E182601D2DA48D00FF8D7B /* Invitation.storyboard */,
 				04257CB11D2C698B00F34956 /* LaunchScreen.storyboard */,
@@ -213,12 +218,13 @@
 		04257CD71D2C77E900F34956 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B20B66A01D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift */,
 				04257CA81D2C698B00F34956 /* AppDelegate.swift */,
+				B20B66A01D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift */,
 				04257CAA1D2C698B00F34956 /* MainViewController.swift */,
 				61D434541D2D949C0093A831 /* CreatePoolViewController.swift */,
 				B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */,
 				B2F857351D2ED6460008FF44 /* addNewFriendsViewController.swift */,
+				04A615731D2F6E19005365B6 /* ActivePoolViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -536,11 +542,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				044B39391D2CD8820058E3EB /* DataSource.swift in Sources */,
+				04A615761D2F7268005365B6 /* ContributorsTableViewCell.swift in Sources */,
 				044B39351D2CAEB40058E3EB /* MoneyPoolType.swift in Sources */,
 				04257CAB1D2C698B00F34956 /* MainViewController.swift in Sources */,
 				044B392C1D2C8CD20058E3EB /* FirebaseHelper.swift in Sources */,
 				B20B66A21D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift in Sources */,
 				0404906A1D2DB13C005F654E /* InvitaionTableViewCell.swift in Sources */,
+				04A615741D2F6E19005365B6 /* ActivePoolViewController.swift in Sources */,
 				044B39331D2CAE770058E3EB /* Invitation.swift in Sources */,
 				044B393B1D2CE11E0058E3EB /* ErrorHandling.swift in Sources */,
 				04257CA91D2C698B00F34956 /* AppDelegate.swift in Sources */,

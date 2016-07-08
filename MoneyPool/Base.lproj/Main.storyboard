@@ -107,6 +107,7 @@
                                             <outlet property="raisedLabel" destination="JyU-f7-eWg" id="Cgt-1d-cU6"/>
                                             <outlet property="titleLabel" destination="KQk-DR-QNz" id="DYz-4W-gqW"/>
                                             <outlet property="toRaiseLabel" destination="3SE-vT-dap" id="67U-tg-IJu"/>
+                                            <segue destination="YXQ-0w-ftp" kind="show" identifier="showActivePoolViewController" id="gqB-wE-Dsa"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InvitaionTableViewCell" rowHeight="96" id="cjh-f8-jLO" customClass="InvitaionTableViewCell" customModule="MoneyPool" customModuleProvider="target">
@@ -180,13 +181,13 @@
                                                             <rect key="frame" x="516" y="0.0" width="52" height="46"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-mm-Kkg">
-                                                                    <rect key="frame" x="10" y="0.0" width="32" height="26"/>
+                                                                    <rect key="frame" x="10" y="0.0" width="32" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2 Days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9j-JS-IAf">
-                                                                    <rect key="frame" x="0.0" y="26" width="52" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="17" width="52" height="29"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -233,7 +234,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mQC-6u-soG">
                             <connections>
-                                <segue destination="ToM-J7-kLG" kind="show" id="82m-L9-d9c"/>
+                                <segue destination="ToM-J7-kLG" kind="show" id="46j-An-O5b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -286,6 +287,158 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmi-q5-ELS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2894" y="-497"/>
+        </scene>
+        <!--Active Pool View Controller-->
+        <scene sceneID="ZHA-Nk-Itr">
+            <objects>
+                <viewController id="YXQ-0w-ftp" customClass="ActivePoolViewController" customModule="MoneyPool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SbW-je-o1B"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fa1-1Y-bdQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yAc-UP-5Ea">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHp-M6-CS5">
+                                <rect key="frame" x="20" y="84" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount Goal:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5C-4k-LNx">
+                                <rect key="frame" x="291" y="125" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="803-PV-EeK">
+                                <rect key="frame" x="20" y="125" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$300.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viL-m1-aAe">
+                                <rect key="frame" x="420" y="125" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bar Be Cue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoy-Vz-ayn">
+                                <rect key="frame" x="137" y="84" width="120" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount Raised:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ga-3c-Hiz">
+                                <rect key="frame" x="291" y="154" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$100.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaZ-l5-SEf">
+                                <rect key="frame" x="420" y="154" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Set:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-i9-XRq">
+                                <rect key="frame" x="291" y="184" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="weekly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9D-Ml-1i3">
+                                <rect key="frame" x="417" y="183" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-f6-Jq6">
+                                <rect key="frame" x="291" y="229" width="207" height="30"/>
+                                <color key="backgroundColor" red="0.039215686270000001" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="PAY">
+                                    <color key="titleColor" red="0.99229282139999997" green="0.98456043000000004" blue="0.97185009720000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="payNowTapped:" destination="YXQ-0w-ftp" eventType="touchUpInside" id="FQJ-iv-vy6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contributors:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0a-7J-4hD">
+                                <rect key="frame" x="20" y="287" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-JZ-teo">
+                                <rect key="frame" x="20" y="316" width="560" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContributorsTableViewCell" rowHeight="70" id="EQ5-W1-kzq" customClass="ContributorsTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EQ5-W1-kzq" id="nkX-Wb-RFr">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaQ-LV-koS">
+                                                    <rect key="frame" x="72" y="23" width="345" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kCh-ed-YSv">
+                                                    <rect key="frame" x="8" y="7" width="55" height="55"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="RH2-Ve-Va3"/>
+                                                        <constraint firstAttribute="height" constant="55" id="hed-XC-kAv"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uaQ-LV-koS" firstAttribute="centerY" secondItem="nkX-Wb-RFr" secondAttribute="centerY" id="1d1-rZ-ZUt"/>
+                                                <constraint firstItem="kCh-ed-YSv" firstAttribute="centerY" secondItem="nkX-Wb-RFr" secondAttribute="centerY" id="JY3-Ug-g8m"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uaQ-LV-koS" secondAttribute="trailing" constant="135" id="NIm-Fm-r3X"/>
+                                                <constraint firstItem="uaQ-LV-koS" firstAttribute="leading" secondItem="kCh-ed-YSv" secondAttribute="trailing" constant="9" id="acr-Hw-iaB"/>
+                                                <constraint firstItem="kCh-ed-YSv" firstAttribute="leading" secondItem="nkX-Wb-RFr" secondAttribute="leading" constant="8" id="kbe-e2-wIb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="friendImageView" destination="kCh-ed-YSv" id="2ae-Hb-ie1"/>
+                                            <outlet property="friendNameLabel" destination="uaQ-LV-koS" id="c4n-ZW-69M"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="End of the month bbq." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ken-gl-YQX">
+                                <rect key="frame" x="20" y="154" width="255" height="105"/>
+                                <color key="backgroundColor" red="0.90087687969999997" green="0.93276536460000004" blue="0.97434490920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ACk-JZ-teo" firstAttribute="top" secondItem="SbW-je-o1B" secondAttribute="bottom" constant="252" id="58H-eR-uKc"/>
+                            <constraint firstItem="ACk-JZ-teo" firstAttribute="leading" secondItem="yAc-UP-5Ea" secondAttribute="leadingMargin" id="9KW-Xa-ZGz"/>
+                            <constraint firstItem="ACk-JZ-teo" firstAttribute="trailing" secondItem="yAc-UP-5Ea" secondAttribute="trailingMargin" id="FaK-eQ-DHc"/>
+                            <constraint firstItem="Fa1-1Y-bdQ" firstAttribute="top" secondItem="ACk-JZ-teo" secondAttribute="bottom" constant="20" id="KCR-dK-2Px"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ACk-JZ-teo" secondAttribute="leading" id="U7t-uB-Cxe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountGoalLabel" destination="viL-m1-aAe" id="TQn-tp-hvV"/>
+                        <outlet property="amountRaisedLabel" destination="OaZ-l5-SEf" id="Wdp-Dd-8vP"/>
+                        <outlet property="paymentSetLabel" destination="j9D-Ml-1i3" id="N6p-AC-1JB"/>
+                        <outlet property="poolDescriptionLabel" destination="ken-gl-YQX" id="p8i-8b-7mX"/>
+                        <outlet property="tableView" destination="ACk-JZ-teo" id="OfU-Ih-ug0"/>
+                        <outlet property="titleLabel" destination="qoy-Vz-ayn" id="U5u-6u-MGQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vih-Yx-0Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3830" y="790"/>
         </scene>
     </scenes>
 </document>

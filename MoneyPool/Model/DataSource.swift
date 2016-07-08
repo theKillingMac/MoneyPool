@@ -79,19 +79,33 @@ class DataSource: NSObject {
          }
     }
     
+    /// Remove active observer from firebase
+    func removeObserverForRefPoint(refPoint: RefPoint) {
+        firebaseHelper.removeObserverForRefPoint(refPoint)
+    }
+    
     /// Fetch user from current user friends list on firebase refPoint friends
     private func generateDataFromFriendsDict(snaps: [String:[String:AnyObject]]) {
+        guard let currentUser = FIRAuth.auth()?.currentUser?.uid else { return }
         for (key, value) in snaps {
-            // Get friendlis from each userID key
-            for (keyF, _) in value {
-                let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
-                self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnap: FIRDataSnapshot) in
-                    guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
-                    let user = User(userID: keyF, info: userInfo)
-                    self.moneyPoolData.append(user)
-                    self.delegate?.updateData()
-                    print(user)
+            if currentUser == key {
+                for (key, _) in value  {
+                    let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
+                    self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnaps: FIRDataSnapshot) in
+                        print(userSnaps)
+                    }
                 }
+//                // Get friendlis from each userID key
+//                for (keyF, _) in value {
+//                    let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
+//                    self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnap: FIRDataSnapshot) in
+//                        guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
+//                        let user = User(userID: keyF, info: userInfo)
+//                        self.moneyPoolData.append(user)
+//                        self.delegate?.updateData()
+//                        print(user)
+//                    }
+//                }
             }
         }
     }
