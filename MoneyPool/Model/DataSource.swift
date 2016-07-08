@@ -122,6 +122,8 @@ class DataSource: NSObject {
             firebaseHelper.saveData(file, toRefPoint: RefPoint.Pools)
         case let file as Invitation:
             firebaseHelper.saveData(file, toRefPoint: RefPoint.Invitations)
+        case let file as PaymentPlan:
+            firebaseHelper.saveData(file, toRefPoint: RefPoint.PaymentPlan)
         default:
             ErrorHandling.customErrorMessage("Error Saving file to firebase")
             break
