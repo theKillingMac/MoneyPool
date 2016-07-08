@@ -12,11 +12,8 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
 	
 	let info: String
 	let title: String
-	let recurringAmount: Double
 	let amountToRaise: Double
-	let numberOfPayments: Int
-	let paymentsMadeEveryTimePeriod: String
-	
+	let paymentPlanID: String
 	let usersID: [String]
 	
 	
@@ -24,28 +21,24 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
         // TODO: implement
         self.info = info["description"] as! String
         self.title = info["title"] as! String
-        self.recurringAmount = info["recurringAmount"] as! Double
         self.amountToRaise = info["amountToRaise"] as! Double
-        self.numberOfPayments = info["numberOfPayments"] as! Int
-        self.paymentsMadeEveryTimePeriod = info["paymentPlan"] as! String
-        self.usersID = [String]()
+		self.paymentPlanID = info["paymentPlanID"] as! String
+		
+		self.usersID = [String]()
+		
     }
 	
 	init(
 	title: String,
 	info: String,
-	recurringAmount: Double,
 	amountToRaise: Double,
-	numberOfPayments: Int,
-	paymentsMadeEveryTimePeriod: String,
+	paymentPlanID: String
 	usersID: [String] ){
 		
 		self.info = info
 		self.title = title
-		self.recurringAmount = recurringAmount
 		self.amountToRaise = amountToRaise
-		self.numberOfPayments = numberOfPayments
-		self.paymentsMadeEveryTimePeriod = paymentsMadeEveryTimePeriod
+		self.paymentPlanID = paymentPlanID
 		self.usersID = usersID
 		
 	}
