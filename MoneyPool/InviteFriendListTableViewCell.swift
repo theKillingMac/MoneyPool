@@ -32,6 +32,7 @@ class InviteFriendListTableViewCell: UITableViewCell {
 	
 	func configure(cell: MoneyPoolType){
 		guard let cell = cell as? User else {return}
+		print("configuring cell...")
 		self.user = cell
 	}
 	
