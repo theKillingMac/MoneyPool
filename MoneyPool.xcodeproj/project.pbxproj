@@ -40,6 +40,8 @@
 		B2F857321D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */; };
 		B2F857361D2ED6460008FF44 /* AddNewFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857351D2ED6460008FF44 /* AddNewFriendsViewController.swift */; };
 		B2F857381D2EF0860008FF44 /* AddNewFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857371D2EF0860008FF44 /* AddNewFriendsTableViewCell.swift */; };
+		B2F8573A1D301D160008FF44 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F857391D301D160008FF44 /* ProfileViewController.swift */; };
+		B2F8573C1D302DF70008FF44 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F8573B1D302DF70008FF44 /* PaymentViewController.swift */; };
 		BE8AF93BF52A32C1FEDF3821 /* Pods_MoneyPoolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		B2F857311D2E44900008FF44 /* PoolInvitationFriendListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoolInvitationFriendListsTableViewCell.swift; sourceTree = "<group>"; };
 		B2F857351D2ED6460008FF44 /* AddNewFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewFriendsViewController.swift; sourceTree = "<group>"; };
 		B2F857371D2EF0860008FF44 /* AddNewFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		B2F857391D301D160008FF44 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B2F8573B1D302DF70008FF44 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		C08DB8C913CE9BC1F09F28E6 /* Pods_MoneyPoolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyPoolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -228,6 +232,8 @@
 				B2F8572B1D2DB1960008FF44 /* PoolInvitationViewController.swift */,
 				B2F857351D2ED6460008FF44 /* AddNewFriendsViewController.swift */,
 				04A615731D2F6E19005365B6 /* ActivePoolViewController.swift */,
+				B2F857391D301D160008FF44 /* ProfileViewController.swift */,
+				B2F8573B1D302DF70008FF44 /* PaymentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				04257CAB1D2C698B00F34956 /* MainViewController.swift in Sources */,
 				044B392C1D2C8CD20058E3EB /* FirebaseHelper.swift in Sources */,
 				B20B66A21D2D9D6B00BFF4A2 /* InviteFriendsListViewController.swift in Sources */,
+				B2F8573A1D301D160008FF44 /* ProfileViewController.swift in Sources */,
 				0404906A1D2DB13C005F654E /* InvitaionTableViewCell.swift in Sources */,
 				04A615741D2F6E19005365B6 /* ActivePoolViewController.swift in Sources */,
 				044B39331D2CAE770058E3EB /* Invitation.swift in Sources */,
@@ -566,6 +573,7 @@
 				044B392F1D2C903B0058E3EB /* Pool.swift in Sources */,
 				B2F8572C1D2DB1960008FF44 /* PoolInvitationViewController.swift in Sources */,
 				B2F857381D2EF0860008FF44 /* AddNewFriendsTableViewCell.swift in Sources */,
+				B2F8573C1D302DF70008FF44 /* PaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
