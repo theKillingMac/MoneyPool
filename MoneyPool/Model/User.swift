@@ -23,10 +23,10 @@ struct User: MoneyPoolType, FirebaseConvertible {
     
     init(userID: String, info: [String:AnyObject]) {
         self.userID = userID
-        self.firstName = info["firstName"] as! String
-        self.lastName = info["lastName"] as! String
-        self.nickname = info["nickname"] as! String
-        self.email = info["email"] as! String
+        self.firstName = info["firstName"] as? String ?? "no name"
+        self.lastName = info["lastName"] as? String ?? "no entry"
+        self.nickname = info["nickname"] as? String ?? "no entry"
+        self.email = info["email"] as! String ?? "no entry"
         if let imgUrl = info["imgUrl"] as? String {
             self.imgUrl = imgUrl
         } else {
