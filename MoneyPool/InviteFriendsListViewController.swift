@@ -18,14 +18,14 @@ class InviteFriendsListViewController: UIViewController {
 	struct partiallyMadeInvitation {
 		let info: String
 		let title: String
-		let recurringAmount: Double
+		let amountToPay: Double
 		let amountToRaise: Double
 		let numberOfPayments: Int
-		let paymentsMadeEveryTimePeriod: String
+		let periodOfPayments: String
 	}
 	
 	//Information given when segued to this view controller
-	var incompleteInvitation: partiallyMadeInvitation = partiallyMadeInvitation(info: "description of pool", title: "title of pool", recurringAmount: 50, amountToRaise: 400, numberOfPayments: 8, paymentsMadeEveryTimePeriod: "weekly")
+	var incompleteInvitation: partiallyMadeInvitation = partiallyMadeInvitation(info: "description of pool", title: "title of pool", amountToPay: 50, amountToRaise: 400, numberOfPayments: 8, periodOfPayments: "weekly")
 	
 	
 	
@@ -95,16 +95,18 @@ class InviteFriendsListViewController: UIViewController {
 	}
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
-		//make an invitation and save to Firebase
-		
-		//right now all variables in invitation just listed - NOT DONE the structs for paymentPlan etc
 		print("button pushed")
+		
+		let paymentPlan = PaymentPlan(amountToPay: incompleteInvitation.amountToPay,
+		                              numberOfPayments: incompleteInvitation.numberOfPayments,
+		                              periodOfPayments: incompleteInvitation.periodOfPayments)
+		
 		let invitation = Invitation(title: incompleteInvitation.title,
 		                            info: incompleteInvitation.info,
-		                            recurringAmount: incompleteInvitation.recurringAmount,
+		                            recurringAmount: incompleteInvitation.amountToPay,
 		                            amountToRaise: incompleteInvitation.amountToRaise,
 		                            numberOfPayments: incompleteInvitation.numberOfPayments,
-		                            paymentsMadeEveryTimePeriod: incompleteInvitation.paymentsMadeEveryTimePeriod,
+		                            periodOfPayments: incompleteInvitation.paymentsMadeEveryTimePeriod,
 		                            usersID: allFriends)
 		
 		let firebase = FirebaseHelper()
