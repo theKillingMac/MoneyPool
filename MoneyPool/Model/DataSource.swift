@@ -71,7 +71,12 @@ class DataSource: NSObject {
             guard let snaps = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
-            self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
+            
+            if refPoint == RefPoint.Friends {
+                print(#function, snaps)
+            } else {
+                self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
+            }
          }
     }
     
@@ -97,6 +102,10 @@ class DataSource: NSObject {
                 let pool = Pool(info: snap)
                 self.moneyPoolData.append(pool)
                 print(pool)
+            case .PaymentPlan:
+                let paymentPlan = PaymentPlan(info: snap)
+                self.moneyPoolData.append(paymentPlan)
+                print(paymentPlan)
             }
         }
         self.delegate?.updateData()
