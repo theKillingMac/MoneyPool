@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginTappedButton(sender: UIButton) {
         if loginButton.titleLabel?.text == "LOGIN" {
+            
             login(emailTextField.text!, password: passwordTextfield.text!)
             
         } else {
@@ -47,13 +48,13 @@ class LoginViewController: UIViewController {
     }
     
     func login (email: String, password: String) {
+        print(#function)
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { user, error in
             if error != nil {
-                // user not found
-                self.createUser(email, password: password)
                 print("incorrect")
             } else {
-                print("Success")
+                print("Success \(user?.uid)")
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         })
     }
@@ -63,7 +64,7 @@ class LoginViewController: UIViewController {
             if error != nil {
                 
             } else {
-                print("User Created")
+                print("User Created \(user?.uid)")
                 self.login(email, password: password)
             }
             
@@ -72,7 +73,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
 }
