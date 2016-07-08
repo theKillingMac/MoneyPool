@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l4l-8o-ii2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l4l-8o-ii2">
                                 <rect key="frame" x="0.0" y="54" width="600" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -31,23 +31,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-7V-iqU">
-                                                    <rect key="frame" x="71" y="37" width="345" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-7V-iqU">
+                                                    <rect key="frame" x="71" y="43" width="410" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y0-RX-PaY">
-                                                    <rect key="frame" x="442" y="20" width="150" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="Nec-IY-m5n"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Invite"/>
-                                                    <state key="selected" title="Invited"/>
-                                                    <connections>
-                                                        <action selector="inviteFriendButtonPushed:" destination="cDJ-dd-keF" eventType="touchUpInside" id="z4O-nP-LEv"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u4x-Tp-Toi">
                                                     <rect key="frame" x="8" y="7" width="55" height="55"/>
                                                     <constraints>
@@ -55,26 +44,58 @@
                                                         <constraint firstAttribute="width" constant="55" id="VQN-sV-KYD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMT-tf-GeI">
-                                                    <rect key="frame" x="71" y="8" width="363" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMT-tf-GeI">
+                                                    <rect key="frame" x="71" y="11" width="410" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XQ-6b-9Lt">
+                                                    <rect key="frame" x="489" y="16" width="103" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="103" id="Ofc-ug-Zg8"/>
+                                                        <constraint firstAttribute="width" constant="103" id="nJd-Ub-fvx"/>
+                                                        <constraint firstAttribute="height" constant="27" id="pC9-GS-KeY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="nJd-Ub-fvx"/>
+                                                            <exclude reference="pC9-GS-KeY"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="DGl-9M-1X7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DeC-7V-iqU" secondAttribute="bottom" id="3Ys-fP-SgF"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="trailing" secondItem="7Da-Y2-54x" secondAttribute="trailingMargin" id="BJe-QY-Vx9"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="top" secondItem="7Da-Y2-54x" secondAttribute="topMargin" constant="8" id="DdP-LQ-rBa"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="leading" secondItem="DeC-7V-iqU" secondAttribute="trailing" constant="8" id="ELe-Sq-7I5"/>
                                                 <constraint firstItem="u4x-Tp-Toi" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="FOw-bp-dGB"/>
-                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="trailing" secondItem="7Da-Y2-54x" secondAttribute="trailingMargin" id="OsS-k0-88Q"/>
+                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="top" secondItem="FMT-tf-GeI" secondAttribute="bottom" constant="8" id="K3k-Tr-5AS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9XQ-6b-9Lt" secondAttribute="bottom" constant="8" id="Myr-V1-sWB"/>
                                                 <constraint firstItem="u4x-Tp-Toi" firstAttribute="leading" secondItem="7Da-Y2-54x" secondAttribute="leading" constant="8" id="RGC-0D-LTN"/>
-                                                <constraint firstItem="5Y0-RX-PaY" firstAttribute="leading" secondItem="DeC-7V-iqU" secondAttribute="trailing" constant="25" id="hLG-e9-Qm2"/>
-                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="leading" secondItem="u4x-Tp-Toi" secondAttribute="trailing" constant="9" id="os4-97-HZt"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="leading" secondItem="FMT-tf-GeI" secondAttribute="trailing" constant="8" id="SEj-gl-1uU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9XQ-6b-9Lt" secondAttribute="bottom" constant="18" id="Vj8-IA-0j1"/>
+                                                <constraint firstItem="FMT-tf-GeI" firstAttribute="leading" secondItem="u4x-Tp-Toi" secondAttribute="trailing" constant="8" id="bzd-44-wnt"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="trailing" secondItem="7Da-Y2-54x" secondAttribute="trailingMargin" id="if5-Bq-HnP"/>
+                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="leading" secondItem="u4x-Tp-Toi" secondAttribute="trailing" constant="8" id="sdZ-zg-3zx"/>
+                                                <constraint firstItem="9XQ-6b-9Lt" firstAttribute="top" secondItem="7Da-Y2-54x" secondAttribute="topMargin" constant="8" id="zW0-h1-nGS"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="DdP-LQ-rBa"/>
+                                                    <exclude reference="Myr-V1-sWB"/>
+                                                    <exclude reference="if5-Bq-HnP"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="friendNameLabel" destination="DeC-7V-iqU" id="ted-n0-hRf"/>
                                             <outlet property="friendUsernameLabel" destination="FMT-tf-GeI" id="iqa-Xs-1hs"/>
-                                            <outlet property="inviteFriendButton" destination="5Y0-RX-PaY" id="o3G-5X-IVB"/>
+                                            <outlet property="inviteStateLabel" destination="9XQ-6b-9Lt" id="yiY-Ly-52e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -282,7 +303,7 @@
                                 <rect key="frame" x="0.0" y="299" width="600" height="225"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListsTableViewCell" customModule="MoneyPool" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="0CK-r2-qMe" customClass="PoolInvitationFriendListTableViewCell" customModule="MoneyPool" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CK-r2-qMe" id="7mv-s2-tSD">
@@ -335,10 +356,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="5yx-In-ewt" id="rSq-9b-1eA"/>
-                                    <outlet property="delegate" destination="5yx-In-ewt" id="a6D-Yh-EGg"/>
-                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-x1-2qD">
                                 <rect key="frame" x="146" y="544" width="308" height="36"/>
@@ -372,7 +389,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Fe-Uj-Udp">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Fe-Uj-Udp">
                                 <rect key="frame" x="20" y="147" width="560" height="108"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-zC-GQc">
@@ -409,7 +426,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HBs-ej-m8K">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HBs-ej-m8K">
                                         <rect key="frame" x="0.0" y="58" width="210" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recurring Amount: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctz-1z-Fnc">
@@ -426,7 +443,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-0k-Jc5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i1w-0k-Jc5">
                                         <rect key="frame" x="0.0" y="87" width="194" height="21"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payments made: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDf-Yg-TAY">

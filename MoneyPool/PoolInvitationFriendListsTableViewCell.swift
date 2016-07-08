@@ -8,12 +8,14 @@
 
 import UIKit
 
-class PoolInvitationFriendListsTableViewCell: UITableViewCell {
+class PoolInvitationFriendListTableViewCell: UITableViewCell {
 	
 	
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
 	@IBOutlet weak var statusInPool: UILabel!
 	
-
+	func configure(cellData: MoneyPoolType){
+		
+	}
 }

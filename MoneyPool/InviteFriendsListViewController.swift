@@ -35,9 +35,6 @@ class InviteFriendsListViewController: UIViewController {
 	
 	
 	
-	//var firebase = FirebaseHelper()
-	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
-	
 	
 	
 	
@@ -46,29 +43,63 @@ class InviteFriendsListViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		self
+		
 		tableView.dataSource = dataSource
 		tableView.delegate = self
 		dataSource.delegate = self
-		dataSource.viewController = self
-		
-		
-        // Do any additional setup after loading the view.
-    }
-	
-	
+	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		dataSource.addOFirebaseObserverForRefPoint(.Friends)
-	}
+		//NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.cellButtonPressed(_:)), name: "ButtonHasBeenPressed", object: nil)
+		}
+	
+//	func cellButtonPressed(notification: NSNotification) {
+//		print("Im here")
+//		
+//		let indexPath = tableView.indexPathForSelectedRow!
+//		
+//		let user = dataSource.moneyPoolData[indexPath.row] as! User
+//		print("invite user...")
+//
+//		let cell = tableView.cellForRowAtIndexPath(indexPath) as! InviteFriendListTableViewCell
+//		
+//		
+//		if cell.invited{ //state before button was pressed
+//			self.invitedFriends.removeValueForKey(user.userID)
+//		}else{
+//			//was not invited, now invited
+//			self.invitedFriends[user.userID] = true
+//		}
+	
+		//		let cell = notification.object as! InviteFriendListTableViewCell
+//		let path = tableView.indexPathForCell(cell)
+//		let row = path?.row
+//
+//
+//		let user = dataSource.moneyPoolData[row!] as! User
+//
+//		print("invite user...")
+//
+//
+	//}
 	
 	
 	
 	
+	
+//	
+//	
+//	override func viewDidDisappear(animated: Bool) {
+//		super.viewDidDisappear(animated)
+//		NSNotificationCenter.defaultCenter().removeObserver(self, name: "ButtonHasBeenPressed", object: nil)
+//		
+//
+//	}
+
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
-		print("button pushed")
 		
 		let paymentPlan = PaymentPlan(amountToPay: incompleteInvitation.amountToPay,
 		                              numberOfPayments: incompleteInvitation.numberOfPayments,
@@ -91,7 +122,19 @@ class InviteFriendsListViewController: UIViewController {
 
 ////MARK: Table View
 extension InviteFriendsListViewController: UITableViewDelegate{
-	
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		print("GOT IT!!")
+		let cell = tableView.cellForRowAtIndexPath(indexPath) as! InviteFriendListTableViewCell
+		let user = dataSource.moneyPoolData[indexPath.row] as! User
+		
+		if cell.inviteStateLabel.text == "INVITE"{
+			self.invitedFriends[user.userID] = true
+			cell.inviteStateLabel.text = "INVITED"
+		}else{
+			cell.inviteStateLabel.text = "INVITE"
+			self.invitedFriends.removeValueForKey(user.userID)
+		}
+	}
 }
 
 
@@ -108,6 +151,7 @@ extension InviteFriendsListViewController: DataSourceDelegate {
 extension InviteFriendsListViewController: UISearchBarDelegate{
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
 		searchBar.setShowsCancelButton(true, animated: true)
+		friendsArrayBackup = dataSource.moneyPoolData
 		dataSource.moneyPoolData = []
 		updateData()
 	}
@@ -134,6 +178,7 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 	}
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		searchBar.setShowsCancelButton(true, animated: true)
 		self.view.endEditing(true)
 		searchBar.setShowsCancelButton(true, animated: true)
 		tableView.reloadData()
@@ -141,30 +186,30 @@ extension InviteFriendsListViewController: UISearchBarDelegate{
 	
 }
 
-//MARK: Friend invitation
-extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate {
-	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invited: Bool){
-	
-		//GET THE USER AND STROE IT IN INVITED FRIENDS
-		//invitedFriends.append(invitedFriend)
-		print(cell)
-		let path = tableView.indexPathForCell(cell)
-		let row = path?.row
-		
-		
-		let user = dataSource.moneyPoolData[row!] as! User
-		
-		print("invite user...")
-		
-		if invited{
-			self.invitedFriends[user.userID] = true
-		}else{
-			self.invitedFriends.removeValueForKey(user.userID)
-		}
-		
-	}
-	
+////MARK: Friend invitation
+//extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate {
+//	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invited: Bool){
+//	
+//		//GET THE USER AND STROE IT IN INVITED FRIENDS
+//		//invitedFriends.append(invitedFriend)
+//		print(cell)
+//		let path = tableView.indexPathForCell(cell)
+//		let row = path?.row
+//		
+//		
+//		let user = dataSource.moneyPoolData[row!] as! User
+//		
+//		print("invite user...")
+//		
+//		if invited{
+//			self.invitedFriends[user.userID] = true
+//		}else{
+//			self.invitedFriends.removeValueForKey(user.userID)
+//		}
+//		
+//	}
+
 	
 
-}
+
 
