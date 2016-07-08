@@ -65,6 +65,7 @@ class LoginViewController: UIViewController {
                 
             } else {
                 print("User Created \(user?.uid)")
+                FirebaseHelper.rootRef.child("users/\(user!.uid)").setValue(["email": email])
                 self.login(email, password: password)
             }
             
