@@ -21,7 +21,11 @@ struct User: MoneyPoolType, FirebaseConvertible {
         self.lastName = info["lastName"] as! String
         self.nickname = info["nickname"] as! String
         self.email = info["email"] as! String
-        self.imgUrl = info["imgUrl"] as! String
+        if let imgUrl = info["imgUrl"] as? String {
+            self.imgUrl = imgUrl
+        } else {
+            self.imgUrl = "no image"
+        }
     }
     
     func converToFirebase() -> [String:AnyObject] {
