@@ -121,6 +121,10 @@ class FirebaseHelper {
         FirebaseHelper._rootRef.child(refPoint.rawValue).observeEventType(.Value, withBlock: completion)
     }
     
+    func addValueObserverForCustomRefPoint(customRefPoint: String, completion: (FIRDataSnapshot) -> Void) {
+        FirebaseHelper._rootRef.child(customRefPoint).observeSingleEventOfType(.Value, withBlock: completion)
+    }
+    
     /// add firebase observer for a single event
     func addSingleObserverForRefPoint(refPoint: RefPoint, completion: (FIRDataSnapshot) -> Void) {
         FirebaseHelper._rootRef.child(refPoint.rawValue).observeSingleEventOfType(.Value, withBlock: completion)
