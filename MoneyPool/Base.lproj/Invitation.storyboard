@@ -197,8 +197,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgA-wW-akk">
-                                                    <rect key="frame" x="72" y="23" width="345" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgA-wW-akk">
+                                                    <rect key="frame" x="72" y="23" width="370" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -210,8 +210,11 @@
                                                         <constraint firstAttribute="width" constant="55" id="tXh-kb-zMf"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-Zh-TtT">
-                                                    <rect key="frame" x="430" y="17" width="162" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-Zh-TtT">
+                                                    <rect key="frame" x="442" y="16" width="150" height="37"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="JGy-16-nhE"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -219,9 +222,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XgA-wW-akk" firstAttribute="centerY" secondItem="lvt-AB-9l0" secondAttribute="centerY" id="CTR-bJ-gyJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="G9c-Zh-TtT" secondAttribute="bottom" constant="8" id="HJo-sV-IfJ"/>
+                                                <constraint firstItem="G9c-Zh-TtT" firstAttribute="top" secondItem="lvt-AB-9l0" secondAttribute="topMargin" constant="8" id="Pha-oH-hhs"/>
                                                 <constraint firstItem="8Dg-fC-vH3" firstAttribute="leading" secondItem="lvt-AB-9l0" secondAttribute="leading" constant="8" id="VnY-dg-PhE"/>
+                                                <constraint firstItem="G9c-Zh-TtT" firstAttribute="leading" secondItem="XgA-wW-akk" secondAttribute="trailing" id="WRU-MU-ZQz"/>
                                                 <constraint firstItem="XgA-wW-akk" firstAttribute="leading" secondItem="8Dg-fC-vH3" secondAttribute="trailing" constant="9" id="ZPe-0T-5uz"/>
                                                 <constraint firstItem="8Dg-fC-vH3" firstAttribute="centerY" secondItem="lvt-AB-9l0" secondAttribute="centerY" id="dvv-jV-Imz"/>
+                                                <constraint firstItem="G9c-Zh-TtT" firstAttribute="trailing" secondItem="lvt-AB-9l0" secondAttribute="trailingMargin" id="mvN-5B-Lf0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

@@ -100,6 +100,7 @@ class InviteFriendsListViewController: UIViewController {
 
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
+		guard invitedFriends.count != 0 else {return}
 		
 		let paymentPlan = PaymentPlan(amountToPay: incompleteInvitation.amountToPay,
 		                              numberOfPayments: incompleteInvitation.numberOfPayments,
@@ -115,6 +116,8 @@ class InviteFriendsListViewController: UIViewController {
 		                            usersID: invitedFriends)
 		
 		dataSource.saveToDatabase(invitation)
+		
+		self.navigationController?.popToRootViewControllerAnimated(true)
 		
 	}
 
