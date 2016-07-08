@@ -73,7 +73,7 @@ class DataSource: NSObject {
                 return }
             
             if refPoint == RefPoint.Friends {
-                print(#function)
+                print(#function, snaps)
             } else {
                 self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
             }
@@ -102,6 +102,10 @@ class DataSource: NSObject {
                 let pool = Pool(info: snap)
                 self.moneyPoolData.append(pool)
                 print(pool)
+            case .PaymentPlan:
+                let paymentPlan = PaymentPlan(info: snap)
+                self.moneyPoolData.append(paymentPlan)
+                print(paymentPlan)
             }
         }
         self.delegate?.updateData()
