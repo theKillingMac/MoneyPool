@@ -69,7 +69,8 @@ class FirebaseHelper {
             saveToPools(data)
         case .Invitations:
             saveToInvitaion(data)
-            case .PaymentPlan
+        case .PaymentPlan:
+            saveToPaymentPlan(data)
         }
     }
     
