@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let userInfo = ["firstName": "test", "lastName": "user2", "nickname": "test2", "email": "test2@hello.com", "imgUrl": "htt://www.imageToFirebase.com"]
+    let userInfo = ["firstName": "test5", "lastName": "user5", "nickname": "test5", "email": "test5@hello.com", "imgUrl": "htt://www.imageToFirebase.com"]
     
     var fireInfo = [String:AnyObject]()
     
@@ -33,16 +33,31 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         dataSource.delegate = self
         
-//        firebaseHelper.createUserWithEmail("test2@hello.com", andPassword: "123456")
-        firebaseHelper.loginWithEmail("test2@hello.com", andPassword: "123456")
+        firebaseHelper.loginWithEmail("test5@hello.com", andPassword: "123456")
+//        firebaseHelper.createUserWithEmail("test5@hello.com", andPassword: "123456")
 
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-//        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Pools)
         dataSource.addOFirebaseObserverForRefPoint(RefPoint.Friends)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        // remove firebase observer
+        dataSource.removeObserverForRefPoint(RefPoint.Pools)
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showActivePoolViewController" {
+            guard let activeVC =  segue.destinationViewController as? ActivePoolViewController, indexPath = tableView.indexPathForSelectedRow else { return }
+            let pool = dataSource.moneyPoolData[indexPath.row]
+            print(#function, pool)
+            activeVC.pool = pool as? Pool
+        }
     }
 }
 
