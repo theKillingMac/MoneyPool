@@ -71,15 +71,31 @@ class DataSource: NSObject {
             guard let snaps = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
-            
             if refPoint == RefPoint.Friends {
-                print(#function, snaps)
+                self.generateDataFromFriendsDict(snaps)
             } else {
                 self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
             }
          }
     }
     
+    /// Fetch user from current user friends list on firebase refPoint friends
+    private func generateDataFromFriendsDict(snaps: [String:[String:AnyObject]]) {
+        for (key, value) in snaps {
+            // Get friendlis from each userID key
+            for (keyF, _) in value {
+                let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
+                self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnap: FIRDataSnapshot) in
+                    guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
+                    let user = User(userID: keyF, info: userInfo)
+                    self.moneyPoolData.append(user)
+                    print(user)
+                }
+            }
+        }
+    }
+    
+    /// Fetch data from firebase
     private func generateDataFromFirebase(snaps: [String:[String:AnyObject]], forRefPoint refPoint: RefPoint) {
         // clear data before update
         self.moneyPoolData.removeAll(keepCapacity: true)
