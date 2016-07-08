@@ -8,18 +8,19 @@
 
 import UIKit
 
-protocol InviteFriendTableViewCellDelegate: class{
-	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String)
-	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String)
-}
+//protocol InviteFriendTableViewCellDelegate {
+//	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invited: Bool)
+//}
 
 class InviteFriendListTableViewCell: UITableViewCell {
 
 	private var user: User? {
 		didSet{
 			if let user = user{
+				inviteStateLabel.text = "INVITE"
+				friendUsernameLabel.text = user.nickname
 				friendNameLabel.text = (user.firstName) + " " + (user.lastName)
-				friendImageView.image = UIImage(data: (NSURL(string: user.imgUrl)?.dataRepresentation)!)
+				friendImageView?.image = UIImage(data: (NSURL(string: user.imgUrl)?.dataRepresentation)!)
 			}
 			
 		}
@@ -27,7 +28,8 @@ class InviteFriendListTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var friendImageView: UIImageView!
 	@IBOutlet weak var friendNameLabel: UILabel!
-	@IBOutlet weak var inviteFriendButton: UIButton!
+	@IBOutlet weak var friendUsernameLabel: UILabel!
+	@IBOutlet weak var inviteStateLabel: UILabel!
 	
 	
 	func configure(cell: MoneyPoolType){
@@ -36,18 +38,26 @@ class InviteFriendListTableViewCell: UITableViewCell {
 	}
 	
 	var invited = false
-	weak var delegate: InviteFriendTableViewCellDelegate?
+	//var delegate: InviteFriendTableViewCellDelegate?
 
-	@IBAction func inviteFriendButtonPushed(sender: UIButton) {
-		sender.selected = !sender.selected
-		
-		if !invited{
-			delegate?.cell(self, didInviteFriend: self.friendNameLabel.text!)
-			invited = true
-		}else{
-			delegate?.cell(self, didUninviteFriend: self.friendNameLabel.text!)
-			invited = false
-		}
-	}
+	
+	
+//	
+//	@IBAction func inviteFriendButtonPushed(sender: UIButton) {
+//
+//	NSNotificationCenter.defaultCenter().postNotificationName("ButtonHasBeenPressed", object: nil)
+//		
+//
+//		
+//		sender.selected = !sender.selected
+//		print("pushed button")
+//		if !invited{
+//			//delegate!.cell(self, didInviteFriend: true)
+//			invited = true
+//		}else{
+//			//delegate!.cell(self, didInviteFriend: false)
+//			invited = false
+//		}
+//	}
 	
 }

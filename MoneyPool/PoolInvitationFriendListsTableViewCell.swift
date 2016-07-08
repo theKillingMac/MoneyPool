@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PoolInvitationFriendListsTableViewCell: UITableViewCell {
+class PoolInvitationFriendListTableViewCell: UITableViewCell {
 	
 	
 	@IBOutlet weak var friendImageView: UIImageView!
@@ -29,5 +29,4 @@ class PoolInvitationFriendListsTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }

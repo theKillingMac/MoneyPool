@@ -93,7 +93,11 @@ class DataSource: NSObject {
                 for (key, _) in value  {
                     let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
                     self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnaps: FIRDataSnapshot) in
-                        print(userSnaps)
+						guard let userInfo = userSnaps.value as? [String:AnyObject] else { return }
+						let user = User(userID: key, info: userInfo)
+						self.moneyPoolData.append(user)
+						self.delegate?.updateData()
+						print(user)
                     }
                 }
             }
@@ -177,22 +181,23 @@ extension DataSource: UITableViewDataSource {
                 cell.configure(cellData)
                 return cell
             }
-            
+
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
             cell.configure(cellData)
             return cell
-            
-        case .PoolInvitationFriendListTableViewCell:
-            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
-            cell.configure(cellData)
-            return cell
-            
-        case .AddNewFriendsTableViewCell:
-            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! addNewFriendsTableViewCell
-            cell.configure(cellData)
-            return cell
-        }
-    }
+			
+		case .PoolInvitationFriendListTableViewCell:
+			let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListTableViewCell
+			cell.configure(cellData)
+			return cell
+
+		case .AddNewFriendsTableViewCell:
+			let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! AddNewFriendsTableViewCell
+			cell.configure(cellData)
+			return cell
+			
+		}
+	}
     
 }

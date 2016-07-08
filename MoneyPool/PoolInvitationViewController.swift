@@ -37,24 +37,35 @@ class PoolInvitationViewController: UIViewController {
 	//The invitation should be set during the segue to this controller
 	var invitation: Invitation!{
 		didSet{
-			poolTitle = invitation.title
-			poolInfo.text = invitation.info
-			amountToRaise.text = "\(invitation.amountToRaise)"
-			numberOfPayments.text = "\(invitation.numberOfPayments)"
-			recurringAmount.text = "\(invitation.recurringAmount)"
-			paymentsMadeEveryTimePeriod.text = "\(invitation.paymentsMadeEveryTimePeriod)"
-			usersID = invitation.usersID
+			//NEED TO SET ALL THE PROPERTIES!!
+//			poolTitle = invitation.title
+//			poolInfo.text = invitation.info
+//			amountToRaise.text = "\(invitation.amountToRaise)"
+//			numberOfPayments.text = "\(invitation.numberOfPayments)"
+//			recurringAmount.text = "\(invitation.recurringAmount)"
+//			paymentsMadeEveryTimePeriod.text = "\(invitation.paymentsMadeEveryTimePeriod)"
+//			usersID = invitation.usersID
 		}
 	}
 	
 	@IBOutlet weak var tableView: UITableView!
 	
+	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		tableView.dataSource = dataSource
+		//tableView.delegate = self
+		dataSource.delegate = self
+		
         // Do any additional setup after loading the view.
     }
 	
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		//dataSource.addOFirebaseObserverForRefPoint(<#T##refPoint: RefPoint##RefPoint#>)
+	}
 	
 	
 	//MARK Accept/Decline Button
@@ -79,19 +90,27 @@ class PoolInvitationViewController: UIViewController {
 }
 
 
-//MARK: Table View
-extension PoolInvitationViewController: UITableViewDataSource, UITableViewDelegate{
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return usersID.count
-	}
-	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
-		cell.friendNameLabel.text = usersID[indexPath.row] //actually be from the usersOfPool array
-		//all data will need to be set from usersOfPool array
-		cell.statusInPool.text = "Pending" //this is only temporary as stated above...
-		
-		return cell
+
+extension PoolInvitationViewController: DataSourceDelegate {
+	func updateData() {
+		//print("I AM UPDATING THE TABLE...")
+		tableView.reloadData()
 	}
 }
-
+//
+////MARK: Table View
+//extension PoolInvitationViewController: UITableViewDataSource, UITableViewDelegate{
+//	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//		return usersID.count
+//	}
+//	
+//	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
+//		cell.friendNameLabel.text = usersID[indexPath.row] //actually be from the usersOfPool array
+//		//all data will need to be set from usersOfPool array
+//		cell.statusInPool.text = "Pending" //this is only temporary as stated above...
+//		
+//		return cell
+//	}
+//}
+//

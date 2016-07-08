@@ -12,45 +12,45 @@ struct Invitation: MoneyPoolType, FirebaseConvertible {
 	
 	let info: String
 	let title: String
-	let recurringAmount: Double
 	let amountToRaise: Double
-	let numberOfPayments: Int
-	let paymentsMadeEveryTimePeriod: String
-	
-	let usersID: [String]
+	let paymentPlanID: String
+	let usersID: [String: AnyObject]
 	
 	
     init(info: [String : AnyObject]) {
         // TODO: implement
         self.info = info["description"] as! String
         self.title = info["title"] as! String
-        self.recurringAmount = info["recurringAmount"] as! Double
         self.amountToRaise = info["amountToRaise"] as! Double
-        self.numberOfPayments = info["numberOfPayments"] as! Int
-        self.paymentsMadeEveryTimePeriod = info["paymentPlan"] as! String
-        self.usersID = [String]()
+		self.paymentPlanID = info["paymentPlanID"] as! String
+		
+		self.usersID = [String: AnyObject]()
+		
     }
 	
 	init(
 	title: String,
 	info: String,
-	recurringAmount: Double,
 	amountToRaise: Double,
-	numberOfPayments: Int,
-	paymentsMadeEveryTimePeriod: String,
-	usersID: [String] ){
+	paymentPlanID: String,
+	usersID: [String: AnyObject] ){
 		
 		self.info = info
 		self.title = title
-		self.recurringAmount = recurringAmount
 		self.amountToRaise = amountToRaise
-		self.numberOfPayments = numberOfPayments
-		self.paymentsMadeEveryTimePeriod = paymentsMadeEveryTimePeriod
+		self.paymentPlanID = paymentPlanID
 		self.usersID = usersID
 		
 	}
     
     func converToFirebase() -> [String:AnyObject] {
-        return [String:AnyObject]()
+		var fireInvitation = [String: AnyObject]()
+		fireInvitation["title"] = self.title
+		fireInvitation["info"] = self.info
+		fireInvitation["amountToRaise"] = self.amountToRaise
+		fireInvitation["paymentPlanID"] = self.paymentPlanID
+		fireInvitation["usersID"] = self.usersID
+		
+        return fireInvitation
     }
 }

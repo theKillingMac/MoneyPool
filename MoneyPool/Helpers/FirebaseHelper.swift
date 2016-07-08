@@ -92,6 +92,7 @@ class FirebaseHelper {
     }
     
     private func saveToInvitaion(data: FirebaseConvertible) {
+		print("saving invitation...")
         FirebaseHelper._rootRef.child(RefPoint.Invitations.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
             if error != nil {
                 ErrorHandling.defaultErrorHandler(error!)
@@ -108,9 +109,10 @@ class FirebaseHelper {
 	}
     
     private func saveToPaymentPlan(data: FirebaseConvertible) {
+		print("saving payment plan...")
         FirebaseHelper._rootRef.child(RefPoint.PaymentPlan.rawValue).childByAutoId().setValue(data.converToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
             if error != nil {
-                ErrorHandling.defaultErrorHandler(error!)
+                ErrorHandling.customErrorMessage("error in saving!!")
             }
         }
     }

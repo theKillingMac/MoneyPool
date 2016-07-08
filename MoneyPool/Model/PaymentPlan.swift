@@ -28,5 +28,11 @@ struct PaymentPlan: MoneyPoolType, FirebaseConvertible {
         paymentInfo["periodic"] = self.periodOfPayments
         return paymentInfo
     }
-    
+	
+	init(amountToPay: Double, numberOfPayments: Int, periodOfPayments: String){
+		self.amountToPay = amountToPay
+		self.numberOfPayments = numberOfPayments
+		self.periodOfPayments = periodOfPayments
+	}
+	
 }

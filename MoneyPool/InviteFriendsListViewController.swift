@@ -18,160 +18,198 @@ class InviteFriendsListViewController: UIViewController {
 	struct partiallyMadeInvitation {
 		let info: String
 		let title: String
-		let recurringAmount: Int
-		let amountToRaise: Int
+		let amountToPay: Double
+		let amountToRaise: Double
 		let numberOfPayments: Int
-		let paymentsMadeEveryTimePeriod: String
+		let periodOfPayments: String
 	}
 	
 	//Information given when segued to this view controller
-	var incompleteInvitation: partiallyMadeInvitation!
+	var incompleteInvitation: partiallyMadeInvitation = partiallyMadeInvitation(info: "description of pool", title: "title of pool", amountToPay: 50, amountToRaise: 400, numberOfPayments: 8, periodOfPayments: "weekly")
 	
-//	var allFriends: [String] = [] {
-//		didSet{
-//			displayFriends = allFriends
-//		}
-//	}
 	
-//	var displayFriends: [String] = [] {
-//		didSet{
-//			tableView.reloadData()
-//		}
-//	}
 	
-	var allUsersInFirebase = [User]()
-	var friendsOfCurrentUser = [User]()
+	var invitedFriends = [String: AnyObject]()
 	
-	let friendsImages: [UIImage] = []
-	var invitedFriends = [String]()
+	var friendsArrayBackup = [MoneyPoolType]() //needed for search
 	
-	//var firebase = FirebaseHelper()
-	let currentUser: String = "-KLzPHdO_rEwJuaxA1nr"
 	
-	let dataSource = DataSource(dataSourceType: .InviteFriendListTableViewCell)
 	
-    override func viewDidLoad() {
+	
+	
+	
+	
+	let dataSource = DataSource(dataSourceType: DataSourceType.InviteFriendListTableViewCell)
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
+		
 		tableView.dataSource = dataSource
 		tableView.delegate = self
-		//displayFriends = allFriends
-		
-//		firebase.addValueObserverForRefPoint(RefPoint.Friends) { (result: FIRDataSnapshot) in
-//			let allFriends = result.value as! [String: AnyObject]
-//			self.updateTable(allFriends)
-//		}
-//		
-//		firebase.addSingleObserverForRefPoint(RefPoint.Users) { (result: FIRDataSnapshot) in
-//			let allUsers = result.value as! [String: AnyObject]
-//			for user in allUsers {
-//				
-//				self.allUsersInFirebase.append(User(info: user as! [String: AnyObject]))
-//			}
-//		}
-
-        // Do any additional setup after loading the view.
-    }
-
-	
-//	func updateTable(friendsData: [String: AnyObject]){
-//		
-//		if let friendsArrayOfCurrentUser = friendsData[currentUser] { //the array contains dictionairies
-//			//print(friendsArrayOfCurrentUser)
-//			
-//			for friendData in friendsArrayOfCurrentUser as! [String: Bool]{
-//				//friendData is a tuple of the userID and the boolean value(always true)
-//				allFriends.append(friendData.0)
-//			}
-//
-//		}
-//		
-//	}
+		dataSource.delegate = self
+	}
 	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		dataSource.addOFirebaseObserverForRefPoint(.Friends)
-	}
+		//NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.cellButtonPressed(_:)), name: "ButtonHasBeenPressed", object: nil)
+		}
+	
+//	func cellButtonPressed(notification: NSNotification) {
+//		print("Im here")
+//		
+//		let indexPath = tableView.indexPathForSelectedRow!
+//		
+//		let user = dataSource.moneyPoolData[indexPath.row] as! User
+//		print("invite user...")
+//
+//		let cell = tableView.cellForRowAtIndexPath(indexPath) as! InviteFriendListTableViewCell
+//		
+//		
+//		if cell.invited{ //state before button was pressed
+//			self.invitedFriends.removeValueForKey(user.userID)
+//		}else{
+//			//was not invited, now invited
+//			self.invitedFriends[user.userID] = true
+//		}
+	
+		//		let cell = notification.object as! InviteFriendListTableViewCell
+//		let path = tableView.indexPathForCell(cell)
+//		let row = path?.row
+//
+//
+//		let user = dataSource.moneyPoolData[row!] as! User
+//
+//		print("invite user...")
+//
+//
+	//}
+	
+	
+	
+	
+	
+//	
+//	
+//	override func viewDidDisappear(animated: Bool) {
+//		super.viewDidDisappear(animated)
+//		NSNotificationCenter.defaultCenter().removeObserver(self, name: "ButtonHasBeenPressed", object: nil)
+//		
+//
+//	}
+
 	
 	@IBAction func SendInvitesButtonPushed(sender: UIButton) {
-		//make an invitation and save to Firebase
 		
-		//right now all variables in invitation just listed - NOT DONE the structs for paymentPlan etc
+		let paymentPlan = PaymentPlan(amountToPay: incompleteInvitation.amountToPay,
+		                              numberOfPayments: incompleteInvitation.numberOfPayments,
+		                              periodOfPayments: incompleteInvitation.periodOfPayments)
+		let paymentPlanID = "paymentPlanID1"
 		
-//		let invitation = Invitation(title: incompleteInvitation.title,
-//		                            info: incompleteInvitation.info,
-//		                            recurringAmount: incompleteInvitation.recurringAmount,
-//		                            amountToRaise: incompleteInvitation.amountToRaise,
-//		                            numberOfPayments: incompleteInvitation.numberOfPayments,
-//		                            paymentsMadeEveryTimePeriod: incompleteInvitation.paymentsMadeEveryTimePeriod,
-//		                            usersID: allFriends)
-//		
-//		let firebase = FirebaseHelper()
-//		firebase.saveData(invitation, toRefPoint: RefPoint.Invitation)
+		dataSource.saveToDatabase(paymentPlan)
+		
+		let invitation = Invitation(title: incompleteInvitation.title,
+		                            info: incompleteInvitation.info,
+		                            amountToRaise: incompleteInvitation.amountToRaise,
+		                            paymentPlanID: paymentPlanID,
+		                            usersID: invitedFriends)
+		
+		dataSource.saveToDatabase(invitation)
+		
 	}
 
 }
 
 ////MARK: Table View
 extension InviteFriendsListViewController: UITableViewDelegate{
-
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		print("GOT IT!!")
+		let cell = tableView.cellForRowAtIndexPath(indexPath) as! InviteFriendListTableViewCell
+		let user = dataSource.moneyPoolData[indexPath.row] as! User
+		
+		if cell.inviteStateLabel.text == "INVITE"{
+			self.invitedFriends[user.userID] = true
+			cell.inviteStateLabel.text = "INVITED"
+		}else{
+			cell.inviteStateLabel.text = "INVITE"
+			self.invitedFriends.removeValueForKey(user.userID)
+		}
+	}
 }
-//	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return displayFriends.count
-//	}
-//	
-//	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//		let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! InviteFriendListTableViewCell
-//		cell.friendNameLabel.text = displayFriends[indexPath.row]
-//		//need to set the image of the friend
-//		
-//		cell.delegate = self
-//		return cell
-//	}
-//	
-//	
-//}
+
+
+
+extension InviteFriendsListViewController: DataSourceDelegate {
+	func updateData() {
+		//print("I AM UPDATING THE TABLE...")
+		tableView.reloadData()
+	}
+}
+
 
 //MARK: Search Bar
 extension InviteFriendsListViewController: UISearchBarDelegate{
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
 		searchBar.setShowsCancelButton(true, animated: true)
-		//displayFriends = allFriends
-		//tableView.reloadData()
+		friendsArrayBackup = dataSource.moneyPoolData
+		dataSource.moneyPoolData = []
+		updateData()
 	}
 	
 	func searchBarCancelButtonClicked(searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
 		searchBar.text = ""
 		searchBar.setShowsCancelButton(false, animated: true)
-		//displayFriends = allFriends
+		dataSource.moneyPoolData = friendsArrayBackup
+		updateData()
 	}
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		//displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		//dataSource.moneyPoolData = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		dataSource.moneyPoolData = []
+		for index in 0..<friendsArrayBackup.count {
+			let user = friendsArrayBackup[index] as! User
+			let presentInData = user.nickname.lowercaseString.containsString(searchText.lowercaseString)
+			if presentInData {
+				dataSource.moneyPoolData.append(friendsArrayBackup[index])
+			}
+		}
+		updateData()
 	}
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		searchBar.setShowsCancelButton(true, animated: true)
 		self.view.endEditing(true)
-		searchBar.showsCancelButton = true
+		searchBar.setShowsCancelButton(true, animated: true)
+		tableView.reloadData()
 	}
 	
 }
 
-//MARK: Friend invitation
-extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
-	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriend: String){
-		invitedFriends.append(invitedFriend)
-	}
-	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriend: String){
-		invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
-	}
+////MARK: Friend invitation
+//extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate {
+//	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invited: Bool){
+//	
+//		//GET THE USER AND STROE IT IN INVITED FRIENDS
+//		//invitedFriends.append(invitedFriend)
+//		print(cell)
+//		let path = tableView.indexPathForCell(cell)
+//		let row = path?.row
+//		
+//		
+//		let user = dataSource.moneyPoolData[row!] as! User
+//		
+//		print("invite user...")
+//		
+//		if invited{
+//			self.invitedFriends[user.userID] = true
+//		}else{
+//			self.invitedFriends.removeValueForKey(user.userID)
+//		}
+//		
+//	}
 
-}
+	
 
-extension InviteFriendsListViewController: DataSourceDelegate{
-	func updateData() {
-		print("I AM UPDATING THE TABLE...")
-		tableView.reloadData()
-	}
-}
+
 
