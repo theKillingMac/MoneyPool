@@ -89,6 +89,7 @@ class DataSource: NSObject {
                     guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
                     let user = User(userID: keyF, info: userInfo)
                     self.moneyPoolData.append(user)
+                    self.delegate?.updateData()
                     print(user)
                 }
             }
