@@ -31,9 +31,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-7V-iqU">
-                                                    <rect key="frame" x="72" y="23" width="345" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeC-7V-iqU">
+                                                    <rect key="frame" x="71" y="37" width="345" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -55,9 +55,14 @@
                                                         <constraint firstAttribute="width" constant="55" id="VQN-sV-KYD"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMT-tf-GeI">
+                                                    <rect key="frame" x="71" y="8" width="363" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DeC-7V-iqU" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="9hR-gC-K7D"/>
                                                 <constraint firstItem="5Y0-RX-PaY" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="DGl-9M-1X7"/>
                                                 <constraint firstItem="u4x-Tp-Toi" firstAttribute="centerY" secondItem="7Da-Y2-54x" secondAttribute="centerY" id="FOw-bp-dGB"/>
                                                 <constraint firstItem="5Y0-RX-PaY" firstAttribute="trailing" secondItem="7Da-Y2-54x" secondAttribute="trailingMargin" id="OsS-k0-88Q"/>
@@ -68,6 +73,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="friendNameLabel" destination="DeC-7V-iqU" id="ted-n0-hRf"/>
+                                            <outlet property="friendUsernameLabel" destination="FMT-tf-GeI" id="iqa-Xs-1hs"/>
                                             <outlet property="inviteFriendButton" destination="5Y0-RX-PaY" id="o3G-5X-IVB"/>
                                         </connections>
                                     </tableViewCell>

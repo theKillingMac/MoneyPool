@@ -29,13 +29,9 @@ class InviteFriendsListViewController: UIViewController {
 	
 	
 	
-	var allUsersInFirebase = [User]()
-	var friendsOfCurrentUser = [User]()
-	
-	let friendsImages: [UIImage] = []
 	var invitedFriends = [String: AnyObject]()
 	
-	
+	var friendsArrayBackup = [MoneyPoolType]() //needed for search
 	
 	
 	
@@ -48,16 +44,20 @@ class InviteFriendsListViewController: UIViewController {
 	
 	let dataSource = DataSource(dataSourceType: DataSourceType.InviteFriendListTableViewCell)
 	
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
+		self
 		tableView.dataSource = dataSource
 		tableView.delegate = self
 		dataSource.delegate = self
+		dataSource.viewController = self
 		
 		
         // Do any additional setup after loading the view.
     }
-
+	
+	
+	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		dataSource.addOFirebaseObserverForRefPoint(.Friends)
@@ -81,23 +81,24 @@ class InviteFriendsListViewController: UIViewController {
 		                            info: incompleteInvitation.info,
 		                            amountToRaise: incompleteInvitation.amountToRaise,
 		                            paymentPlanID: paymentPlanID,
-		                            usersID: ["USERID1": true])
+		                            usersID: invitedFriends)
 		
 		dataSource.saveToDatabase(invitation)
+		
 	}
 
 }
 
 ////MARK: Table View
 extension InviteFriendsListViewController: UITableViewDelegate{
-
+	
 }
 
 
 
 extension InviteFriendsListViewController: DataSourceDelegate {
 	func updateData() {
-		print("I AM UPDATING THE TABLE...")
+		//print("I AM UPDATING THE TABLE...")
 		tableView.reloadData()
 	}
 }
@@ -107,39 +108,63 @@ extension InviteFriendsListViewController: DataSourceDelegate {
 extension InviteFriendsListViewController: UISearchBarDelegate{
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
 		searchBar.setShowsCancelButton(true, animated: true)
-		//displayFriends = allFriends
+		dataSource.moneyPoolData = []
+		updateData()
 	}
 	
 	func searchBarCancelButtonClicked(searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
 		searchBar.text = ""
 		searchBar.setShowsCancelButton(false, animated: true)
-		//displayFriends = allFriends
+		dataSource.moneyPoolData = friendsArrayBackup
+		updateData()
 	}
 	
 	func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-		//displayFriends = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		//dataSource.moneyPoolData = allFriends.filter(){$0.lowercaseString.containsString(searchText.lowercaseString)}
+		dataSource.moneyPoolData = []
+		for index in 0..<friendsArrayBackup.count {
+			let user = friendsArrayBackup[index] as! User
+			let presentInData = user.nickname.lowercaseString.containsString(searchText.lowercaseString)
+			if presentInData {
+				dataSource.moneyPoolData.append(friendsArrayBackup[index])
+			}
+		}
+		updateData()
 	}
 	
 	func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 		self.view.endEditing(true)
-		searchBar.showsCancelButton = true
+		searchBar.setShowsCancelButton(true, animated: true)
+		tableView.reloadData()
 	}
 	
 }
 
 //MARK: Friend invitation
-extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate{
-	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invitedFriendName: String){
-		
+extension InviteFriendsListViewController: InviteFriendTableViewCellDelegate {
+	func cell(cell: InviteFriendListTableViewCell, didInviteFriend invited: Bool){
+	
 		//GET THE USER AND STROE IT IN INVITED FRIENDS
 		//invitedFriends.append(invitedFriend)
-	}
-	func cell(cell: InviteFriendListTableViewCell, didUninviteFriend uninvitedFriendName: String){
+		print(cell)
+		let path = tableView.indexPathForCell(cell)
+		let row = path?.row
 		
-		//GET THE USER AND REMOVE IT FROM INVITED FRIENDS
-		//invitedFriends = invitedFriends.filter(){$0 != uninvitedFriend}
+		
+		let user = dataSource.moneyPoolData[row!] as! User
+		
+		print("invite user...")
+		
+		if invited{
+			self.invitedFriends[user.userID] = true
+		}else{
+			self.invitedFriends.removeValueForKey(user.userID)
+		}
+		
 	}
+	
+	
 
 }
 
