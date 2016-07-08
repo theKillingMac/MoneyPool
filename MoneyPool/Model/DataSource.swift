@@ -16,6 +16,7 @@ enum DataSourceType: String {
 //    case InvitaionTableViewCell = "InvitaionTableViewCell"
     case PoolInvitationFriendListTableViewCell = "PoolInvitationFriendListTableViewCell"
     case InviteFriendListTableViewCell = "InviteFriendListTableViewCell"
+    case AddNewFriendsTableViewCell = "AddNewFriendsTableViewCell"
 }
 
 protocol DataSourceDelegate {
@@ -95,19 +96,9 @@ class DataSource: NSObject {
                         print(userSnaps)
                     }
                 }
-//                // Get friendlis from each userID key
-//                for (keyF, _) in value {
-//                    let customRefPoint = "\(RefPoint.Users.rawValue)/\(key)"
-//                    self.firebaseHelper.addValueObserverForCustomRefPoint(customRefPoint) { (userSnap: FIRDataSnapshot) in
-//                        guard let userInfo = userSnap.value as? [String:AnyObject] else { return }
-//                        let user = User(userID: keyF, info: userInfo)
-//                        self.moneyPoolData.append(user)
-//                        self.delegate?.updateData()
-//                        print(user)
-//                    }
-//                }
             }
         }
+        self.delegate?.updateData()
     }
     
     /// Fetch data from firebase
@@ -186,12 +177,19 @@ extension DataSource: UITableViewDataSource {
                 cell.configure(cellData)
                 return cell
             }
+            
         case .InviteFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! InviteFriendListTableViewCell
             cell.configure(cellData)
             return cell
+            
         case .PoolInvitationFriendListTableViewCell:
             let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! PoolInvitationFriendListsTableViewCell
+            cell.configure(cellData)
+            return cell
+            
+        case .AddNewFriendsTableViewCell:
+            let cell = tableView.dequeueReusableCellWithIdentifier(dataSource.rawValue, forIndexPath: indexPath) as! addNewFriendsTableViewCell
             cell.configure(cellData)
             return cell
         }
