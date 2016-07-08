@@ -71,7 +71,12 @@ class DataSource: NSObject {
             guard let snaps = snapShot.value as? [String:[String:AnyObject]] else {
                 ErrorHandling.customErrorMessage("Error fetching data from firebase")
                 return }
-            self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
+            
+            if refPoint == RefPoint.Friends {
+                print(#function)
+            } else {
+                self.generateDataFromFirebase(snaps, forRefPoint: refPoint)
+            }
          }
     }
     

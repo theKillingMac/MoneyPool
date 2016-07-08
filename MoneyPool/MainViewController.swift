@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
         super.viewDidAppear(true)
         
 //        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Pools)
-        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Users)
+        dataSource.addOFirebaseObserverForRefPoint(RefPoint.Friends)
     }
 }
 
